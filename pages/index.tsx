@@ -13,19 +13,17 @@ const Home: NextPage = () => {
   const menu = ["CHOOSE YOUR FATE", "STORE", "TABULA RASA"]
   const scxFigureElements: ReactNode[] = []
   menu.forEach((item, index)=>{
-    if(index != Math.floor((menu.length-1)/2)){
+    if(index != Math.floor((menu.length-1)/2)){ //checks for the center menu item
       scxFigureElements.push(
-        <div className={`figureContainer ${styles.figureContainer}`}>
-          <Image layout="fill" objectFit="contain" src={scxFigure} alt="scx figure" priority={index === 0? true : false } key={item+index}/>
-          <div className={styles.menuTitle}>
-            {item}
-          </div>
+        <div className={`figureContainer ${styles.figureContainer} ${locked.includes(index)? styles.locked:""}`}>
+          <Image layout="fill" objectFit="contain" src={locked.includes(index)? lockIcon:scxFigure} alt="scx figure" priority={index === 0? true : false } key={item+index}/>
+          <div className={styles.menuTitle}>{item}</div>
         </div>
       )
     }else{
       scxFigureElements.push(
-        <div className={`figureContainer ${styles.figureContainer} ${styles.center}`} key={item+index}>
-          <Image layout="fill" objectFit="contain" src={scxFigure} alt="scx figure"/>
+        <div className={`figureContainer ${styles.figureContainer} ${styles.center} ${locked.includes(index)? styles.locked:""}`} key={item+index}>
+          <Image layout="fill" objectFit="contain" src={locked.includes(index)? lockIcon:scxFigure} alt="scx figure"/>
           <div className={styles.menuTitle}>{item}</div>
         </div>
       )
@@ -38,7 +36,7 @@ const Home: NextPage = () => {
       <div className={styles.pageContainer}>
         <div className={styles.figuresContainer}>
           {scxFigureElements}
-          <video className={styles.plasmaVideo} src='/video/vid.mp4' autoPlay muted loop></video>
+          <video className={styles.plasmaVideo} src='/video/vid.mp4' autoPlay muted loop playsInline></video>
         </div>
       </div>
     </div>

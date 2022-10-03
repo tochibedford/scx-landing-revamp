@@ -22,11 +22,16 @@
 }
 
 .figureContainer {
-  filter: invert();
+  /* filter: invert(); */
   width: 50%;
   height: 100%;
   position: relative;
   transition: filter 0.4s;
+}
+
+.locked {
+  width: 10%;
+  opacity: 0.5;
 }
 
 .figureContainer img {
@@ -34,18 +39,18 @@
 }
 
 .figuresContainer img {
-  filter: blur(0px);
+  filter: blur(0px) invert();
 }
 
 .figuresContainer:hover img {
-  filter: blur(3px);
+  filter: blur(3px) invert();
   -webkit-user-drag: none;
   user-select: none;
 }
 
 .figuresContainer:hover img:hover {
-  filter: blur(0px);
-  scale: 1.3;
+  filter: blur(0px) invert();
+  scale: 1.2;
 
 }
 
@@ -67,6 +72,9 @@
   transition: opacity 1s;
 }
 
+/* .figureContainer:hover ~ .figureContainer.plasmaModMix{
+  background-color: transparent;
+} */
 /* @media only screen and (hover: none) and (pointer: coarse){
 
   .figuresContainer:hover img {

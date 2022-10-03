@@ -34,6 +34,7 @@ const Loader: React.FC<IProps> = ({setShowLoader}) => {
         }).to(el.current, {
             y: "-100%",
             duration: 1.3,
+            ease: "power1.inOut"
         }, 2).to(gsapQuerySelector(".staggerLetter"), {
             y: "60%",
             stagger: 0.08,
