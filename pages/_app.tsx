@@ -12,12 +12,13 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         pageAnimate: {
           opacity: 1,
           transition: {
-            duration: 2
+            delay: 0.5,
+            duration: 4
           }
         },
         pageExit: {
           filter: "blur(40px)",
-          opacity: 0.5,
+          opacity: 0.4,
           transition: {
             ease: "easeInOut",
             duration: 1

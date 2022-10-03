@@ -1,12 +1,12 @@
 .app {
   width: 100vw;
-  height: 100vh;
+  height: max-content;
   position: relative;
 }
 
 .pageContainer {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: relative;
   display: flex;
   justify-content: center;
