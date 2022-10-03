@@ -17,12 +17,15 @@ declare global {
 
 const Store = () => {
     return ( 
-        <>
-            {/* <div className={styles.genericTitle}>STORE</div> */}
+        <div className={styles.container}>
+            <div className={styles.genericTitle}>STORE</div>
 
             <model-viewer alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum" src='/models/scxHatblackWhite.glb' shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+            <model-viewer alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum" src='/models/scxHatblackWhite.glb' shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+            <model-viewer alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum" src='/models/scxHatblackWhite.glb' shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+            <model-viewer alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum" src='/models/scxHatblackWhite.glb' shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
             <Script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" />
-        </>
+        </div>
     );
 }
  
