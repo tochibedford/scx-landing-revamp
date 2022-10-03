@@ -6,6 +6,7 @@ import styles from '../styles/Home.module.css'
 import lockIcon from "../public/images/lock.png"
 import scxFigure from '../public/images/SCX-MAIN-FIGURES.png'
 import { ReactNode, useState } from 'react'
+import Link from 'next/link'
 
 const Home: NextPage = () => {
   const [showLoader, setShowLoader] = useState(true)
@@ -15,17 +16,21 @@ const Home: NextPage = () => {
   menu.forEach((item, index)=>{
     if(index != Math.floor((menu.length-1)/2)){ //checks for the center menu item
       scxFigureElements.push(
-        <div className={`figureContainer ${styles.figureContainer} ${locked.includes(index)? styles.locked:""}`}>
-          <Image layout="fill" objectFit="contain" src={locked.includes(index)? lockIcon:scxFigure} alt="scx figure" priority={index === 0? true : false } key={item+index}/>
-          <div className={styles.menuTitle}>{item}</div>
-        </div>
+        <Link href={locked.includes(index)? "":`/${item.toLowerCase().replaceAll(" ", "-")}`} key={item+index}>
+          <div className={`figureContainer ${styles.figureContainer} ${locked.includes(index)? styles.locked:""}`}>
+            <Image layout="fill" objectFit="contain" src={locked.includes(index)? lockIcon:scxFigure} alt="scx figure" priority={index === 0? true : false } />
+            <div className={styles.menuTitle}>{item}</div>
+          </div>
+        </Link>
       )
     }else{
       scxFigureElements.push(
-        <div className={`figureContainer ${styles.figureContainer} ${styles.center} ${locked.includes(index)? styles.locked:""}`} key={item+index}>
-          <Image layout="fill" objectFit="contain" src={locked.includes(index)? lockIcon:scxFigure} alt="scx figure"/>
-          <div className={styles.menuTitle}>{item}</div>
-        </div>
+        <Link href={locked.includes(index)? "":`/${item.toLowerCase().replaceAll(" ", "-")}`} key={item+index}>
+          <div className={`figureContainer ${styles.figureContainer} ${styles.center} ${locked.includes(index)? styles.locked:""}`}>
+            <Image layout="fill" objectFit="contain" src={locked.includes(index)? lockIcon:scxFigure} alt="scx figure"/>
+            <div className={styles.menuTitle}>{item}</div>
+          </div>
+        </Link>
       )
     }
   })

@@ -65,11 +65,23 @@
   z-index: -1;
   pointer-events: none;
   transition: opactiy 2s;
+  filter: blur(20px);
 }
 
 .figureContainer.center:hover ~ .plasmaVideo {
   opacity: 0.8;
   transition: opacity 1s;
+}
+
+.menuTitle {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  vertical-align: text-bottom;
+  font-size: 2em;
+  height: 2.5em;
 }
 
 /* .figureContainer:hover ~ .figureContainer.plasmaModMix{
