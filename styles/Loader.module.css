@@ -1,0 +1,29 @@
+.container {
+    background-color: #C6C6C6;
+    color: black;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1000;
+}
+
+.logoContainer {
+    mix-blend-mode: darken;
+}
+
+.bottomText {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 20em;
+    font-weight: bold;
+    display: flex;
+    
+}
+
+.staggerLetter {
+    opacity: 0.02;
+}
