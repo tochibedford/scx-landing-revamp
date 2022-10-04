@@ -23,7 +23,7 @@ const Model = ({alt, src}: IModel) => {
 
 
     return ( 
-        <motion.div className={styles.modelContainer} initial={{opacity: 0, scale: 0.7, x: "10%"}} whileInView={{x: 0, opacity: 1, scale: 1, transition:{ duration:1.5, ease: "easeOut"}}}>
+        <motion.div className={styles.modelContainer} initial={{opacity: 0, scale: 0.7, x: "-10%"}} whileInView={{x: 0, opacity: 1, scale: 1, transition:{ duration:1.5, ease: "easeOut"}}} viewport={{once: false, amount:0.4}}>
             <model-viewer alt={alt} src={src} camera-target="0 -0.5m 0" shadow-intensity="1" camera-controls disable-pan disable-tap disable-zoom touch-action="pan-y">
                 <div slot="progress-bar"></div>
             </model-viewer>
