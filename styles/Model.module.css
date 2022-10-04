@@ -1,0 +1,11 @@
+.modelContainer {
+    display: grid;
+    place-items: center;
+    height: 70vh;
+    width: 100%;
+}
+
+.modelContainer model-viewer {
+    width: clamp(300px, 60%, 1000px);
+    height: 100%;
+}

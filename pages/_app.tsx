@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import {motion, AnimatePresence} from 'framer-motion'
 
 function MyApp({ Component, pageProps, router }: AppProps) {
+
   return (
     <AnimatePresence>
       <motion.div key={router.route} initial="pageInitial" animate="pageAnimate" exit="pageExit" variants={{
@@ -13,7 +14,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           opacity: 1,
           transition: {
             delay: 0.5,
-            duration: 4
+            duration: 2
           }
         },
         pageExit: {

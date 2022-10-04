@@ -1,16 +1,26 @@
 .container {
-    overflow-y: scroll;
-    overflow-x: hidden;
-    height: 100vh;
+    height: max-content;
+    color: black;
+    background-color: white;
 }
 
 
-.genericTitle {
+.title {
     display: grid;
     place-items: center;
     font-size: 8em;
     font-weight: 700;
     height: 100vh;
     width: 100vw;
-    
+}
+
+.modelsContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+    padding: 3em 0;
+    /* background-color: red; */
 }
