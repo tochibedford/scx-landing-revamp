@@ -3,8 +3,9 @@ import Script from 'next/script'
 import {motion} from 'framer-motion'
 import Model from '../../components/model';
 import { useEffect} from 'react';
+import { NextPage } from 'next';
 
-const Store = () => {
+const Store: NextPage = () => {
   
   const testModel = '/models/scxHatblackWhite.glb'
 

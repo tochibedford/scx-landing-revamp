@@ -14,15 +14,15 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           opacity: 1,
           transition: {
             delay: 0.5,
-            duration: 2
+            duration: 0.5
           }
         },
         pageExit: {
           filter: "blur(40px)",
-          opacity: 0.4,
+          opacity: 0.1,
           transition: {
             ease: "easeInOut",
-            duration: 1
+            duration: 0.25
           }
         }
       }}>

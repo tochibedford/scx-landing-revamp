@@ -27,6 +27,7 @@
   height: 100%;
   position: relative;
   transition: filter 0.4s;
+  color: white;
 }
 
 .locked {
@@ -73,6 +74,10 @@
   transition: opacity 1s;
 }
 
+.hideImage {
+  opacity: 0;
+}
+
 .menuTitle {
   position: absolute;
   bottom: 0;
@@ -83,6 +88,7 @@
   font-size: 2em;
   height: 2.5em;
 }
+
 
 /* .figureContainer:hover ~ .figureContainer.plasmaModMix{
   background-color: transparent;
