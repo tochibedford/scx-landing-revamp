@@ -5,7 +5,7 @@ import Loader from '../components/loader'
 import styles from '../styles/Home.module.css'
 import lockIcon from "../public/images/lock.png"
 import scxFigure from '../public/images/SCX-MAIN-FIGURES.png'
-import { MutableRefObject, ReactNode, useEffect, useRef, useState } from 'react'
+import { ReactNode, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 
 const Home: NextPage = () => {

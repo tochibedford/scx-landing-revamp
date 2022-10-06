@@ -2,8 +2,9 @@ import styles from '../../styles/Store.module.css'
 import Script from 'next/script'
 import {motion} from 'framer-motion'
 import Model from '../../components/model';
-import { useEffect} from 'react';
 import { NextPage } from 'next';
+import Image from 'next/image';
+import scxLogo from '../../public/images/scxLogo.png'
 
 const Store: NextPage = () => {
   
@@ -11,7 +12,14 @@ const Store: NextPage = () => {
 
   return ( 
       <motion.main className={styles.container}>
-          <motion.div animate={{ height: "20vh", fontSize: "30px", transition:{ease: "easeInOut",delay: 2}}} className={styles.title}>STORE</motion.div>
+          <motion.div animate={{ height: "20vh", fontSize: "60px", transition:{ease: "easeInOut",delay: 2}}} className={styles.title}>
+            <div className={styles.brand}>
+              <Image layout="fill" objectFit="contain" alt="scx brand logo" src={scxLogo}/>
+            </div>
+            <div className={styles.pageTitle}>
+              STORE
+            </div>
+          </motion.div>
           <motion.div className={styles.modelsContainer}>
             <Model alt="Social Crucifixion Hat" src={testModel} />
             <Model alt="Social Crucifixion Hat" src={testModel} />
@@ -24,5 +32,4 @@ const Store: NextPage = () => {
       </motion.main>
   );
 }
- 
 export default Store;
