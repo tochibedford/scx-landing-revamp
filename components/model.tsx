@@ -1,5 +1,7 @@
 import {motion} from 'framer-motion'
+import Image from 'next/image';
 import styles from '../styles/Model.module.css'
+import openInfo from '../public/images/OpenInfo.svg'
 
 interface IModel {
     alt: string
@@ -27,6 +29,9 @@ const Model = ({alt, src}: IModel) => {
             <model-viewer alt={alt} src={src} camera-target="0 -0.5m 0" shadow-intensity="1" camera-controls disable-pan disable-tap disable-zoom touch-action="pan-y">
                 {/* <div slot="progress-bar"></div> */}
             </model-viewer>
+            <motion.div className={styles.openInfo} initial={{opacity:0, x: "20vw"}} whileInView={{x: "0vw", opacity: 1, transition:{ duration: 0.7}}}>
+              <Image layout="fill" objectFit="contain" alt="open info button" src={openInfo}/>
+            </motion.div>
         </motion.div>
     );
 }

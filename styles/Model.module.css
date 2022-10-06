@@ -9,3 +9,33 @@
     width: clamp(300px, 60%, 1000px);
     height: 100%;
 }
+
+.openInfo {
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    background-color: black;
+    border: 1em solid black;
+    position: absolute;
+    right: clamp(2em, 10vw,50em);
+}
+
+@keyframes panic {
+    0%{
+        /* scale: 1; */
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateY(1.5%);
+    }
+    
+    30%{
+        /* scale: 1.2; */
+        transform: translateX(-3%) translateY(-2%);
+    }
+}
+
+.openInfo:hover{
+    animation: panic 0.1s ease infinite alternate;
+}
