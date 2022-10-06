@@ -15,9 +15,9 @@ const Store: NextPage = () => {
       <motion.main className={styles.container}>
           <motion.div animate={{ height: "20vh", fontSize: "60px", transition:{ease: "easeInOut",delay: 2}}} className={styles.title}>
             <Link href="/">
-              <a className={styles.brand}>
+              <motion.a className={styles.brand} initial={{opacity: 0, x: 30}} animate={{opacity: 1, x:0, transition:{delay: 1}}}>
                 <Image layout="fill" objectFit="contain" alt="scx brand logo" src={scxLogo}/>
-              </a>
+              </motion.a>
             </Link>
             <div className={styles.pageTitle}>
               STORE

@@ -11,7 +11,7 @@
     align-items: center;
     font-size: 8em;
     font-weight: 1000;
-    height: 100vh;
+    height: 50vh;
     width: 100%;
 }
 
@@ -31,6 +31,7 @@
     height: 100px;
     position: absolute;
     left: clamp(0.2em, 4vw, 1em);
+    cursor: pointer;
 }
 
 .pageTitle {
@@ -38,3 +39,8 @@
     mix-blend-mode: exclusion;
 }
 
+@media screen and (min-width: 600px) {
+    .title {
+        height: 70vh;
+    }
+}
