@@ -23,7 +23,7 @@ const Loader: React.FC<IProps> = ({setShowLoader}) => {
         let from = tl.from(gsapQuerySelector('.logoContainer'), {
             y: -100,
             opacity: 0,
-            duration: 0.5,
+            duration: 0.1,
             immediateRender: false
         }).to(gsapQuerySelector('.staggerLetter'), {
             x: 20,
@@ -33,15 +33,14 @@ const Loader: React.FC<IProps> = ({setShowLoader}) => {
             immediateRender: false
         }).to(el.current, {
             y: "-100%",
-            duration: 1.3,
-            ease: "power1.inOut"
+            duration: 0.3,
         }, 2).to(gsapQuerySelector(".staggerLetter"), {
             y: "60%",
             stagger: 0.08,
-            duration: 1
-        }, "-=1.3").to(gsapQuerySelector(".staggerLetter"),{
+            duration: 0.5
+        }, "-=0.3").to(gsapQuerySelector(".staggerLetter"),{
             y: "-60%",
-            duration: 0.2
+            duration: 0.1
         })
 
         return ()=>{

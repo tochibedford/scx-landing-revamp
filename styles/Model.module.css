@@ -3,11 +3,14 @@
     place-items: center;
     height: 70vh;
     width: 100%;
+    z-index: 2;
 }
 
 .modelContainer model-viewer {
     width: clamp(300px, 60%, 1000px);
     height: 100%;
+    border-radius: 62px ;
+    background-color: white;
 }
 
 .openInfo {
