@@ -13,6 +13,7 @@ const Store: NextPage = () => {
   
   const [isInfoOpen, setIsInfoOpen] = useState(false)
   const testModel = '/models/scxHatblackWhite.glb'
+  const testModel2 = '/models/scxHatnewBlue.glb'
 
   return ( 
     <InfoContext.Provider value={{setIsInfoOpen: setIsInfoOpen}}>
@@ -29,9 +30,9 @@ const Store: NextPage = () => {
           </motion.div>
           <motion.div className={styles.modelsContainer}>
             <Model alt="Social Crucifixion Hat" src={testModel} />
+            <Model alt="Social Crucifixion Hat" src={testModel2} />
             <Model alt="Social Crucifixion Hat" src={testModel} />
-            <Model alt="Social Crucifixion Hat" src={testModel} />
-            <Model alt="Social Crucifixion Hat" src={testModel} />
+            <Model alt="Social Crucifixion Hat" src={testModel2} />
             <Model alt="Social Crucifixion Hat" src={testModel} />
           </motion.div>
           <motion.div className={styles.infoPanel} initial={{width: 0}} animate={{width: isInfoOpen===true?"clamp(500px, 50vw, 100%)": 0, transition: {duration: 0.5}}}>
