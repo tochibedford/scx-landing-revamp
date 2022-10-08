@@ -21,6 +21,7 @@
     border: 1em solid black;
     position: absolute;
     right: clamp(2em, 10vw,50em);
+    user-select: none;
     cursor: pointer;
 }
 
