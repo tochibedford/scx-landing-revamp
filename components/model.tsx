@@ -35,13 +35,15 @@ const Model = ({alt, src}: IModel) => {
   }
 
   useEffect(()=>{
-    if(modelContainerRef.current !== null){
-      modelContainerRef.current.style.marginBottom = "170px"
+    if(window.innerWidth <= 1330){
+      if(modelContainerRef.current !== null){
+        modelContainerRef.current.style.marginBottom = "130px"
+      }
     }
     const handleResize = ()=>{
       if(window.innerWidth <= 1330){
         if(modelContainerRef.current !== null){
-          modelContainerRef.current.style.marginBottom = "170px"
+          modelContainerRef.current.style.marginBottom = "130px"
         }
       }
     }

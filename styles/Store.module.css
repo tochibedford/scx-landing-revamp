@@ -50,6 +50,22 @@
     user-select: none;
 }
 
+
+.customShape{
+    position: absolute;
+    pointer-events: none;
+    width: 200px;
+    left: -50px;
+}
+
+.customShape path {
+    fill: #FFFFFF;
+    opacity: 0.4;
+}
+    
+    
+     
+
 @media screen and (min-width: 600px) {
     .title {
         height: 70vh;
