@@ -17,8 +17,8 @@ const Store: NextPage = () => {
   const testModel3 = '/models/scxHatnewCream.glb'
 
   return ( 
-    <InfoContext.Provider value={{setIsInfoOpen: setIsInfoOpen}}>
-      <motion.main className={styles.container} animate={{backgroundColor: isInfoOpen===true?"black":"white"}}>
+    <InfoContext.Provider value={{isInfoOpen: isInfoOpen, setIsInfoOpen: setIsInfoOpen}}>
+      <motion.main className={styles.container} animate={{backgroundColor: isInfoOpen===true?"rgba(0,0,0,255)":"rgba(255,255,255,255)"}}>
           <motion.div animate={{ height: "20vh", fontSize: "60px", transition:{ease: "easeInOut",delay: 2}}} className={styles.title}>
             <Link href="/">
               <motion.a className={styles.brand} initial={{opacity: 0, x: 30}} animate={{opacity: 1, x:0, filter: "invert()", mixBlendMode: "exclusion", transition:{delay: 1}}}>
