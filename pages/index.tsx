@@ -7,18 +7,22 @@ import lockIcon from "../public/images/lock.png"
 import scxFigure from '../public/images/SCX-MAIN-FIGURES.png'
 import { ReactNode, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 const Home: NextPage = () => {
+  const router = useRouter()
   const [showLoader, setShowLoader] = useState(true)
   const [hideImages, setHideImages] = useState(false)
   const figuresContainerRef = useRef<HTMLDivElement>(null)
-
+  
   const locked = [0,2] // use this to set the index of locked menu items
   const menu = ["CHOOSE YOUR FATE", "STORE", "TABULA RASA"]
   const scxFigureElements: ReactNode[] = []
 
   const handleClick = ()=>{
-    setHideImages(true)
+    if(router.asPath !== '/'){ // to hide images before changing routes due to image enlargening during route changes
+      setHideImages(true)
+    }
   }
 
   useEffect(()=>{
