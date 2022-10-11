@@ -78,8 +78,9 @@
     background-color: red;
     width: 100px;
     height: 100px;
-    opacity: 0;
+    opacity: 0.7;
     overflow: hidden;
+    transition: left 15s ease-out, top 15s ease-out, opacity 1s, transform 0.5s;
 }
 
 

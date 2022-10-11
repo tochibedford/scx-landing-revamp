@@ -114,9 +114,9 @@ const Footer = () => {
                 {currentImages && currentImages.map((value, index)=>{
                     return (
                     <motion.div className={styles.bannerPopUp} key={index}
-                        style={{left:`${currentPositions[index][0]}px`, top:`${currentPositions[index][1]}px`}}
-                        animate={{opacity: [null, 0.8, 0], scale: (0.7+(Math.random()*1)-(0.7/2)).toFixed(2),
-                        transition:{duration: 0.7+(index*0.2), ease: "easeInOut", repeat: Infinity, repeatDelay: 2}}} 
+                        style={{transform: "scale(0.5)", left:`${currentPositions[index][0]}px`, top:`${currentPositions[index][1]}px`}}
+                        animate={{opacity: [0.8, 0.8, 0.8, 0.8, 0], transform: `scale(${(0.7+(Math.random()*0.2)-(0.7/2)).toFixed(2)})`,
+                        transition:{duration: 1, ease: "easeOut", repeat: Infinity, repeatDelay: 0.2}}} 
                         >
                         <Image src={value} layout="fill" style={{transform: "scale(1.3)"}} alt="banner pop up image"/>
                     </motion.div>
