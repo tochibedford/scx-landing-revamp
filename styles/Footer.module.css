@@ -64,11 +64,22 @@
     margin-top: 30px;
     width: calc(100% + 200px);
     height: 200px;
+    /* background-color: rgba(0, 255, 255, 0.226); */
     background-image: url('../public/images/scxBanner.png');
     background-size: auto 500px;
     background-repeat: repeat-x;
-    transition: background-position 0.5s linear;
+    transition: background-position 3s linear;
     mix-blend-mode: multiply;
+}
+
+.bannerPopUp {
+    position: absolute;
+    border-radius: 50%;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+    overflow: hidden;
 }
 
 
