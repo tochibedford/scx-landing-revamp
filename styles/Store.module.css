@@ -27,7 +27,7 @@
 }
 
 .brand {
-    width: clamp(50px, 8vw,100px);
+    width: clamp(50px, 8vw, 100px);
     height: 100px;
     position: absolute;
     left: clamp(0.2em, 4vw, 1em);
@@ -51,7 +51,7 @@
 }
 
 
-.customShape{
+.customShape {
     position: absolute;
     pointer-events: none;
     width: 200px;
@@ -62,9 +62,9 @@
     fill: #FFFFFF;
     opacity: 0.4;
 }
-    
-    
-     
+
+
+
 
 @media screen and (min-width: 600px) {
     .title {

@@ -10,7 +10,7 @@
     width: clamp(300px, 60%, 1000px);
     height: 100%;
     min-height: 350px;
-    border-radius: 62px ;
+    border-radius: 62px;
     /* background-color: white; */
 }
 
@@ -21,13 +21,13 @@
     background-color: black;
     border: 1em solid black;
     position: absolute;
-    right: clamp(2em, 10vw,50em);
+    right: clamp(2em, 10vw, 50em);
     user-select: none;
     cursor: pointer;
 }
 
 @keyframes panic {
-    0%{
+    0% {
         /* scale: 1; */
         transform: translateX(0);
     }
@@ -35,14 +35,14 @@
     25% {
         transform: translateY(1.5%);
     }
-    
-    30%{
+
+    30% {
         /* scale: 1.2; */
         transform: translateX(-3%) translateY(-2%);
     }
 }
 
-.openInfo:hover{
+.openInfo:hover {
     animation: panic 0.1s ease infinite alternate;
 }
 
@@ -67,7 +67,7 @@
     right: 5%;
 }
 
-.infoContainerBottom{
+.infoContainerBottom {
     opacity: 0;
     /* pointer-events: none; */
     position: absolute;
@@ -100,6 +100,7 @@
     border-radius: 10px;
     color: white;
     background-color: black;
+    cursor: pointer;
 }
 
 .cartIcon img {
@@ -126,7 +127,7 @@
     padding: 15px;
 }
 
-.closeInfoContainer{
+.closeInfoContainer {
     position: absolute;
     width: 30px;
     height: 30px;
@@ -142,20 +143,20 @@
     cursor: pointer;
 }
 
-.closeInfoContainer img{
+.closeInfoContainer img {
     transform: scale(0.5);
 }
 
 
 
 @media screen and (max-width: 1330px) {
-    .infoContainerRight{
+    .infoContainerRight {
         opacity: 0;
         pointer-events: none;
     }
-    
+
     .infoContainerBottom {
         opacity: 1;
     }
-    
+
 }

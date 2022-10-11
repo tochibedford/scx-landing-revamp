@@ -1,0 +1,102 @@
+.footerContainer {
+    position: relative;
+    width: 100vw;
+    height: 80vh;
+    border-radius: 80px 80px 0 0;
+    background: white;
+    margin-top: 0px;
+    padding: 50px 100px;
+    font-size: clamp(1.5em, 1vw, 1.8em);
+    /* z-index: 8; */
+    overflow: hidden;
+}
+
+.footerInfoContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px 10px;
+    mix-blend-mode: exclusion;
+}
+
+.footerInfoContainer a {
+    color: white;
+    font-weight: 800;
+    font-size: 1.1em;
+    position: relative;
+}
+
+.footerContainer a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0%;
+    width: 100%;
+    background-color: rgb(224, 224, 224);
+    mix-blend-mode: difference;
+    transition: height 0.3s;
+}
+
+.footerContainer a:hover::after{
+    height: 100%;
+}
+
+.email {
+    width: 100%;
+    height: 100%;
+}
+
+.address {
+    padding-right: 8em;
+}
+
+.socials {
+    text-align: right;
+}
+
+.socials div {
+    margin-bottom: 0.2em;
+}
+
+.scxBanner {
+    position: relative;
+    left: -100px;
+    margin-top: 30px;
+    width: calc(100% + 200px);
+    height: 200px;
+    background-image: url('../public/images/scxBanner.png');
+    background-size: auto 500px;
+    background-repeat: repeat-x;
+    transition: background-position 0.5s linear;
+    mix-blend-mode: multiply;
+}
+
+
+@media screen and (max-width: 1119px) {
+    .socials {
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 809px) {
+    .footerContainer {
+        padding: 50px 10px;
+    }
+
+    .email {
+        text-align: center;
+        border-bottom: 1.5px solid white;
+    }
+
+    .address {
+        text-align: center;
+        padding-right: 0;
+        border-top: 0.6px dashed white;
+        border-bottom: 1.5px solid white;
+    }
+
+    .socials {
+        text-align: center;
+        border-top: 0.6px dashed white;
+    }
+}

@@ -5,5 +5,5 @@ export const InfoContext = createContext<{
     setIsInfoOpen: React.Dispatch<React.SetStateAction<boolean>>
 }>({
     isInfoOpen: false,
-    setIsInfoOpen: ()=>{}
+    setIsInfoOpen: () => { }
 })
