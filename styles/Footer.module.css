@@ -91,7 +91,6 @@
 .bannerPopUp {
     position: absolute;
     border-radius: 50%;
-    background-color: red;
     width: 100px;
     height: 100px;
     opacity: 0.7;
