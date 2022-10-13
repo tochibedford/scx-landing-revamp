@@ -1,20 +1,30 @@
 import scxBanner from '../public/images/scxBanner.png'
 
+import evan from "../public/images/staff/evan.png"
+import jarret from "../public/images/staff/jarret.png"
+import lauren from "../public/images/staff/lauren.png"
+import kudz from "../public/images/staff/kudz.png"
+import tochi from "../public/images/staff/tochi.png"
+import morgan from "../public/images/staff/morgan.png"
+import rachel from "../public/images/staff/rachel.png"
+import sylvain from "../public/images/staff/sylvain.png"
+import tapz from "../public/images/staff/tapz.png"
+
 import { motion } from 'framer-motion'
 
 import Link from 'next/link';
 import styles from '../styles/Footer.module.css'
 import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 const Footer = () => {
-    const [currentImages, setCurrentImages] = useState<string[] | null>(null)
+    const [currentImages, setCurrentImages] = useState<StaticImageData[] | null>(null)
     const [currentPositions, setCurrentPositions] = useState<[number, number][]>([[0, 0], [0, 0], [0, 0], [0, 0]])
     const scxBannerRef = useRef<HTMLDivElement>(null)
     const [positionX, setPositionX] = useState(0.0);
 
 
-    const selectRandomStaff = (staffPaths: string[]): string => {
+    const selectRandomStaff = <T,>(staffPaths: T[]): T => {
         const randomIndex = Math.floor(Math.random() * staffPaths.length)
         return staffPaths[randomIndex]
     }
@@ -31,22 +41,22 @@ const Footer = () => {
 
     useEffect(() => {
         const staffImagePaths = [
-            "/../public/images/staff/evan.png",
-            "/../public/images/staff/jarret.png",
-            "/../public/images/staff/kudz.png",
-            "/../public/images/staff/lauren.png",
-            "/../public/images/staff/tochi.png",
-            "/../public/images/staff/morgan.png",
-            "/../public/images/staff/rachel.png",
-            "/../public/images/staff/sylvain.png",
-            "/../public/images/staff/tapz.png",
+            evan,
+            jarret,
+            kudz,
+            lauren,
+            tochi,
+            morgan,
+            rachel,
+            sylvain,
+            tapz
         ]
 
         const picturePopInterval = setInterval(() => {
-            const picked: string[] = []
+            const picked: StaticImageData[] = []
             const positions: [number, number][] = []
             for (let i = 0; i < 4; i++) { // pick 4 random staff
-                let chosen = selectRandomStaff(staffImagePaths)
+                let chosen: StaticImageData = selectRandomStaff(staffImagePaths)
                 while (picked.includes(chosen)) { // keep selecting random values if `chosen` has been picked already
                     chosen = selectRandomStaff(staffImagePaths)
                 }
@@ -57,7 +67,6 @@ const Footer = () => {
                     positions.push([randomX, randomY])
                 }
             }
-            // console.log(positions)
             setCurrentImages(picked)
             setCurrentPositions(positions)
         }, 3000)
