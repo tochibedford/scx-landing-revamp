@@ -8,28 +8,28 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 const Footer = () => {
-    const [currentImages, setCurrentImages] = useState<string[]|null>(null)
-    const [currentPositions, setCurrentPositions] = useState<[number, number][]>([[0,0],[0,0],[0,0],[0,0]])
+    const [currentImages, setCurrentImages] = useState<string[] | null>(null)
+    const [currentPositions, setCurrentPositions] = useState<[number, number][]>([[0, 0], [0, 0], [0, 0], [0, 0]])
     const scxBannerRef = useRef<HTMLDivElement>(null)
     const [positionX, setPositionX] = useState(0.0);
 
-    
-    const selectRandomStaff = (staffPaths: string[]): string=>{
-        const randomIndex = Math.floor(Math.random()*staffPaths.length)
+
+    const selectRandomStaff = (staffPaths: string[]): string => {
+        const randomIndex = Math.floor(Math.random() * staffPaths.length)
         return staffPaths[randomIndex]
     }
 
-    const selectRandomCoordinateInElement = (htmlNode: HTMLElement, paddingX: number=0, paddingY: number=0): [number, number]=>{
-        const objectHeight = htmlNode.getBoundingClientRect().height/2
+    const selectRandomCoordinateInElement = (htmlNode: HTMLElement, paddingX: number = 0, paddingY: number = 0): [number, number] => {
+        const objectHeight = htmlNode.getBoundingClientRect().height / 2
         const objectWidth = htmlNode.getBoundingClientRect().width
-        
-        const randomX = Math.floor(Math.random()*(objectWidth - paddingX*2)) + paddingX //random integer in range (`padding`) to (objectWidth - `padding`) 
-        const randomY = Math.floor(Math.random()*(objectHeight - paddingY*2)) + paddingX //random integer in range (`padding`) to (objectWidth - `padding`) 
+
+        const randomX = Math.floor(Math.random() * (objectWidth - paddingX * 2)) + paddingX //random integer in range (`padding`) to (objectWidth - `padding`) 
+        const randomY = Math.floor(Math.random() * (objectHeight - paddingY * 2)) + paddingX //random integer in range (`padding`) to (objectWidth - `padding`) 
 
         return [randomX, randomY]
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         const staffImagePaths = [
             "/../public/images/staff/evan.png",
             "/../public/images/staff/jarret.png",
@@ -41,18 +41,18 @@ const Footer = () => {
             "/../public/images/staff/sylvain.png",
             "/../public/images/staff/tapz.png",
         ]
-        
-        const picturePopInterval = setInterval(()=>{
+
+        const picturePopInterval = setInterval(() => {
             const picked: string[] = []
             const positions: [number, number][] = []
-            for(let i=0; i<4; i++){ // pick 4 random staff
-                let chosen = selectRandomStaff(staffImagePaths) 
-                while(picked.includes(chosen)) { // keep selecting random values if `chosen` has been picked already
+            for (let i = 0; i < 4; i++) { // pick 4 random staff
+                let chosen = selectRandomStaff(staffImagePaths)
+                while (picked.includes(chosen)) { // keep selecting random values if `chosen` has been picked already
                     chosen = selectRandomStaff(staffImagePaths)
                 }
                 picked.push(chosen)
-                
-                if(scxBannerRef.current){
+
+                if (scxBannerRef.current) {
                     const [randomX, randomY] = selectRandomCoordinateInElement(scxBannerRef.current)
                     positions.push([randomX, randomY])
                 }
@@ -62,13 +62,13 @@ const Footer = () => {
             setCurrentPositions(positions)
         }, 3000)
 
-        const positionXInterval = setInterval(()=>{ //animates the scx banner
-            setPositionX(prevPosition=>{ // will take approximately 17,895 hrs to reach max css value (((2^32)/2)-1) (a signed 32 bit int)
+        const positionXInterval = setInterval(() => { //animates the scx banner
+            setPositionX(prevPosition => { // will take approximately 17,895 hrs to reach max css value (((2^32)/2)-1) (a signed 32 bit int)
                 return (prevPosition + 100)
             })
         }, 3000)
-        
-        return ()=>{
+
+        return () => {
             clearInterval(positionXInterval)
             clearInterval(picturePopInterval)
         }
@@ -81,9 +81,11 @@ const Footer = () => {
                     <div>
                         Write us an email:
                     </div>
-                    <Link href="mailto: cancelled@socialcrucifix.com">
-                        <a>@CANCELLED</a>
-                    </Link>
+                    <div className={styles.cancelled}>
+                        <Link href="mailto: cancelled@socialcrucifix.com">
+                            <a >@CANCELLED</a>
+                        </Link>
+                    </div>
                 </div>
                 <div className={styles.address}>23, Something Street, <br /> Los Angeles,<br /> California.<br /> United States of America</div>
                 <div className={styles.socials}>
@@ -110,20 +112,23 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className={styles.scxBanner} ref={scxBannerRef} style={{backgroundPositionX: `${positionX}px`, backgroundPositionY: "-150px"}}>
-                {currentImages && currentImages.map((value, index)=>{
+            <div className={styles.scxBanner} ref={scxBannerRef} style={{ backgroundPositionX: `${positionX}px`, backgroundPositionY: "-150px" }}>
+                {currentImages && currentImages.map((value, index) => {
                     return (
-                    <motion.div className={styles.bannerPopUp} key={index}
-                        style={{transform: "scale(0.5)", left:`${currentPositions[index][0]}px`, top:`${currentPositions[index][1]}px`}}
-                        animate={{opacity: [0.8, 0.8, 0.8, 0.8, 0], transform: `scale(${(0.7+(Math.random()*0.2)-(0.7/2)).toFixed(2)})`,
-                        transition:{duration: 1, ease: "easeOut", repeat: Infinity, repeatDelay: 0.2}}} 
+                        <motion.div className={styles.bannerPopUp} key={index}
+                            style={{ transform: "scale(0.5)", left: `${currentPositions[index][0]}px`, top: `${currentPositions[index][1]}px` }}
+                            animate={{
+                                transform: `scale(${(0.7 + (Math.random() * 0.2) - (0.7 / 2)).toFixed(2)})`,
+                                transition: { duration: 1, ease: "easeOut", repeat: Infinity, repeatDelay: 0.2 }
+                            }}
                         >
-                        <Image src={value} layout="fill" style={{transform: "scale(1.3)"}} alt="banner pop up image"/>
-                    </motion.div>
+                            <Image src={value} layout="fill" style={{ transform: "scale(1.3)" }} alt="banner pop up image" />
+                        </motion.div>
                     )
                 })}
-                
+
             </div>
+            <div className={styles.scxLetters}>SCX</div>
         </footer>
     );
 }

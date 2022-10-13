@@ -2,12 +2,10 @@
     position: relative;
     width: 100vw;
     height: 80vh;
-    border-radius: 80px 80px 0 0;
-    background: white;
+    background: rgb(236, 236, 236);
     margin-top: 0px;
     padding: 50px 100px;
     font-size: clamp(1.5em, 1vw, 1.8em);
-    /* z-index: 8; */
     overflow: hidden;
 }
 
@@ -41,13 +39,18 @@
     height: 100%;
 }
 
+.cancelled {
+    font-size: 1.5em;
+    color: green;
+}
+
 .email {
     width: 100%;
     height: 100%;
 }
 
 .address {
-    padding-right: 8em;
+    text-align: center;
 }
 
 .socials {
@@ -64,12 +67,25 @@
     margin-top: 30px;
     width: calc(100% + 200px);
     height: 200px;
-    /* background-color: rgba(0, 255, 255, 0.226); */
     background-image: url('../public/images/scxBanner.png');
     background-size: auto 500px;
     background-repeat: repeat-x;
     transition: background-position 3s linear;
     mix-blend-mode: multiply;
+}
+
+@keyframes scaleAnimation {
+    0% {
+        scale: 1;
+    }
+
+    50% {
+        scale: 0;
+    }
+
+    100% {
+        scale: 1;
+    }
 }
 
 .bannerPopUp {
@@ -80,9 +96,18 @@
     height: 100px;
     opacity: 0.7;
     overflow: hidden;
-    transition: left 15s ease-out, top 15s ease-out, opacity 1s, transform 0.5s;
+    transition: opacity 1s, transform 0.5s;
 }
 
+.scxLetters {
+    color: black;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(4em,18vw,15em);
+    font-weight: 600;
+}
 
 @media screen and (max-width: 1119px) {
     .socials {
@@ -101,7 +126,6 @@
     }
 
     .address {
-        text-align: center;
         padding-right: 0;
         border-top: 0.6px dashed white;
         border-bottom: 1.5px solid white;
