@@ -7,12 +7,14 @@ import Link from 'next/link'
 import Script from 'next/script'
 import { motion, useScroll } from 'framer-motion'
 
+import { modelInfo, Data } from "../api/models"
 import Model from '../../components/model'
 import scxLogo from '../../public/images/scxLogo.png'
 import { InfoContext } from '../../components/contexts/InfoContext'
 import Footer from '../../components/Footer'
 
 const Store: NextPage = () => {
+  const [modelsInfos, setModelInfos] = useState<modelInfo[] | null>(null)
 
   const [isInfoOpen, setIsInfoOpen] = useState(false)
   const [svgDividerWidth, setsvgDividerWidth] = useState(200);
@@ -27,11 +29,20 @@ const Store: NextPage = () => {
   }
 
   useEffect(() => {
+    if(!modelsInfos){
+      fetch("/api/models")
+      .then(res=>{
+        return res.json()
+      })
+      .then((infos: Data) =>{
+        setModelInfos(infos.data)
+      })
+    }
 
     return scrollYProgress.onChange((latest) => {
       changeSvgWidth(60 + (100 * (1 - parseFloat(latest.toFixed(2))))) // changes the scrollProgress from 0 -> 1 to 1 -> 0 then to 160 -> 100
     })
-  }, [scrollYProgress])
+  }, [scrollYProgress, modelsInfos])
 
   return (
     <InfoContext.Provider value={{ isInfoOpen: isInfoOpen, setIsInfoOpen: setIsInfoOpen }}>
@@ -47,11 +58,11 @@ const Store: NextPage = () => {
           </div>
         </motion.div>
         <motion.div className={styles.modelsContainer}>
-          <Model alt="Social Crucifixion Hat" src={testModel} />
-          <Model alt="Social Crucifixion Hat" src={testModel2} />
-          <Model alt="Social Crucifixion Hat" src={testModel3} />
-          <Model alt="Social Crucifixion Hat" src={testModel} />
-          <Model alt="Social Crucifixion Hat" src={testModel3} />
+          {
+            modelsInfos?.map((modelInfo, index)=>{
+              return <Model alt="Social Crucifixion Hat" src={modelInfo.url} key={index} />
+            })
+          }
         </motion.div>
         <motion.div className={styles.infoPanel} initial={{ width: 0 }} animate={{ width: isInfoOpen === true ? "clamp(500px, 50vw, 100%)" : 0, transition: { duration: 0.5 } }}>
           <div className={styles.customShape} style={{ width: `${svgDividerWidth}px` }}>
