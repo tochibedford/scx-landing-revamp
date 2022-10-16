@@ -68,19 +68,22 @@ export default async function handler(
                         info.push({name: doc.data().name, url: url, colors: doc.data().colors})
                     }).catch(error=>{
                       console.log(error)
+                      reject()
                     })
           )
         });
 
         Promise.all(urlsPromise).then(()=>{
           res.status(200).json({ data: info })
-          resolve()
+          // resolve()
         }).catch(error=>{
           console.log(error)
+          // reject()
         })
 
       }).catch(error=>{
         console.log(error)
+        reject()
       })
   })
   

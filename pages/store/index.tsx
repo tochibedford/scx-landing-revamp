@@ -37,6 +37,9 @@ const Store: NextPage = () => {
       .then((infos: Data) =>{
         setModelInfos(infos.data)
       })
+      .catch(error=>{
+        console.log(error)
+      })
     }
 
     return scrollYProgress.onChange((latest) => {
