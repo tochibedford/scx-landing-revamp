@@ -40,6 +40,19 @@ const Footer = () => {
     }
 
     useEffect(() => {
+        //page visibility API calls, to pause the moving banner on page exit
+        // Set the name of the hidden property and the change event for visibility
+        let visibilityChange;
+        const hiddenAPIName = (<T,>(document: T & {msHidden?: boolean; webkitHidden?: boolean}) => {
+            if (typeof document.msHidden !== "undefined") {
+                return "msHidden";
+            } else if (typeof document.webkitHidden !== "undefined") {
+                return "webkitHidden";
+            } else {
+                return "hidden"
+            }
+        })(document)
+
         const staffImagePaths = [
             evan,
             jarret,
@@ -67,14 +80,18 @@ const Footer = () => {
                     positions.push([randomX, randomY])
                 }
             }
-            setCurrentImages(picked)
-            setCurrentPositions(positions)
+            if(!document[hiddenAPIName as keyof typeof document]){ //because hiddenAPI name can be either "hidden", "mshidden" or "webkitHidden" we need to coerce it
+                setCurrentImages(picked)
+                setCurrentPositions(positions)
+            }
         }, 3000)
 
         const positionXInterval = setInterval(() => { //animates the scx banner
-            setPositionX(prevPosition => { // will take approximately 17,895 hrs to reach max css value (((2^32)/2)-1) (a signed 32 bit int)
-                return (prevPosition + 100)
-            })
+            if(!document[hiddenAPIName as keyof typeof document]){
+                setPositionX(prevPosition => { // will take approximately 17,895 hrs to reach max css value (((2^32)/2)-1) (a signed 32 bit int)
+                    return (prevPosition + 100)
+                })
+            }
         }, 3000)
 
         return () => {
