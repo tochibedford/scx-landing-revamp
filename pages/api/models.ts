@@ -75,10 +75,10 @@ export default async function handler(
 
         Promise.all(urlsPromise).then(()=>{
           res.status(200).json({ data: info })
-          resolve()
+          // resolve()
         }).catch(error=>{
           console.log(error)
-          reject()
+          // reject()
         })
 
       }).catch(error=>{
