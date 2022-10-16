@@ -5,7 +5,7 @@ import Loader from '../components/loader'
 import styles from '../styles/Home.module.css'
 import lockIcon from "../public/images/lock.png"
 import scxFigure from '../public/images/SCX-MAIN-FIGURES.png'
-import { ReactNode, useEffect, useRef, useState } from 'react'
+import { ReactNode, useEffect, useRef, useState, useCallback } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -19,11 +19,11 @@ const Home: NextPage = () => {
   const menu = ["CHOOSE YOUR FATE", "STORE", "TABULA RASA"]
   const scxFigureElements: ReactNode[] = []
 
-  const handleClick = ()=>{
+  const handleClick = useCallback(()=>{
     if(router.asPath !== '/'){ // to hide images before changing routes due to image enlargening during route changes
       setHideImages(true)
     }
-  }
+  },[router.asPath])
 
   useEffect(()=>{
     setHideImages(false)
@@ -33,7 +33,7 @@ const Home: NextPage = () => {
     return ()=>{
       fig?.removeEventListener("click", handleClick)
     }
-  }, [])
+  }, [handleClick])
 
   menu.forEach((item, index)=>{
     if(index != Math.floor((menu.length-1)/2)){ //checks for the center menu item
