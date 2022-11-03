@@ -53,11 +53,11 @@ const Loader: React.FC<IProps> = ({ setShowLoader }) => {
             <div className={`logoContainer ${styles.logoContainer}`}>
                 <Image className={styles.logo} src={logo} alt="scx logo" />
             </div>
-            <div className={styles.bottomText}>
+            {/* <div className={styles.bottomText}>
                 <div className={`staggerLetter ${styles.staggerLetter}`}>S</div>
                 <div className={`staggerLetter ${styles.staggerLetter}`}>C</div>
                 <div className={`staggerLetter ${styles.staggerLetter}`}>X</div>
-            </div>
+            </div> */}
         </div>
     );
 }

@@ -98,13 +98,12 @@
     transition: opacity 1s, transform 0.5s;
 }
 
-.scxLetters {
-    color: black;
+.scxFooterLogo {
+    mix-blend-mode: multiply;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: clamp(4em,18vw,15em);
     font-weight: 600;
 }
 

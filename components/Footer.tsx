@@ -10,6 +10,8 @@ import rachel from "../public/images/staff/rachel.png"
 import sylvain from "../public/images/staff/sylvain.png"
 import tapz from "../public/images/staff/tapz.png"
 
+import scxLogo from "../public/images/scxLogo.png"
+
 import { motion } from 'framer-motion'
 
 import Link from 'next/link';
@@ -154,7 +156,9 @@ const Footer = () => {
                 })}
 
             </div>
-            <div className={styles.scxLetters}>SCX</div>
+            <div className={styles.scxFooterLogo}>
+                <Image src={scxLogo} alt="social crucifixion logo" />
+            </div>
         </footer>
     );
 }
