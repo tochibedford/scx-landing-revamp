@@ -1,7 +1,6 @@
 .footerContainer {
     position: relative;
     width: 100vw;
-    height: 80vh;
     background: rgb(236, 236, 236);
     margin-top: 0px;
     padding: 50px 100px;
@@ -100,7 +99,9 @@
 
 .scxFooterLogo {
     mix-blend-mode: multiply;
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
