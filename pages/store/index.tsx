@@ -29,23 +29,11 @@ const Store: NextPage = () => {
   }
 
   useEffect(() => {
-    if(!modelsInfos){
-      fetch("/api/models")
-      .then(res=>{
-        return res.json()
-      })
-      .then((infos: Data) =>{
-        setModelInfos(infos.data)
-      })
-      .catch(error=>{
-        console.log(error)
-      })
-    }
 
     return scrollYProgress.onChange((latest) => {
       changeSvgWidth(60 + (100 * (1 - parseFloat(latest.toFixed(2))))) // changes the scrollProgress from 0 -> 1 to 1 -> 0 then to 160 -> 100
     })
-  }, [scrollYProgress, modelsInfos])
+  }, [scrollYProgress])
 
   return (
     <InfoContext.Provider value={{ isInfoOpen: isInfoOpen, setIsInfoOpen: setIsInfoOpen }}>
@@ -61,11 +49,9 @@ const Store: NextPage = () => {
           </div>
         </motion.div>
         <motion.div className={styles.modelsContainer}>
-          {
-            modelsInfos?.map((modelInfo, index)=>{
-              return <Model alt="Social Crucifixion Hat" src={modelInfo.url} key={index} />
-            })
-          }
+          <Model alt="Social Crucifixion Hat" src={testModel} />
+          <Model alt="Social Crucifixion Hat" src={testModel2} />
+          <Model alt="Social Crucifixion Hat" src={testModel3} />
         </motion.div>
         <motion.div className={styles.infoPanel} initial={{ width: 0 }} animate={{ width: isInfoOpen === true ? "clamp(500px, 50vw, 100%)" : 0, transition: { duration: 0.5 } }}>
           <div className={styles.customShape} style={{ width: `${svgDividerWidth}px` }}>
