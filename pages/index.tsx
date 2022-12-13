@@ -9,8 +9,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      {/* <DynamicIndexHome /> */}
-      <IndexHome />
+      <DynamicIndexHome />
     </>
   )
 }
