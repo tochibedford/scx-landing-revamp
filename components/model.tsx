@@ -6,10 +6,12 @@ import cartIcon from '../public/images/cart.svg'
 import closeInfoIcon from '../public/images/closeInfo.svg'
 import { useContext, useEffect, useRef } from 'react';
 import { InfoContext } from './contexts/InfoContext';
+import { modelInfo } from '../pages/api/models';
 
 interface IModel {
     alt: string
     src: string
+    info: modelInfo
 }
 
 declare global {
@@ -25,7 +27,7 @@ declare global {
     }
 }
 
-const Model = ({alt, src}: IModel) => {
+const Model = ({alt, src, info}: IModel) => {
   const modelContainerRef = useRef<HTMLDivElement>(null)
   const {isInfoOpen, setIsInfoOpen} = useContext(InfoContext)
   const handleClick = ()=>{

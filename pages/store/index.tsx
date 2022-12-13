@@ -14,14 +14,38 @@ import { InfoContext } from '../../components/contexts/InfoContext'
 import Footer from '../../components/Footer'
 
 const Store: NextPage = () => {
-  const [modelsInfos, setModelInfos] = useState<modelInfo[] | null>(null)
-
+  // const [modelsInfos, setModelInfos] = useState<modelInfo[] | null>(null)
+  
   const [isInfoOpen, setIsInfoOpen] = useState(false)
   const [svgDividerWidth, setsvgDividerWidth] = useState(200);
   const testModel = '/models/scxHatblackWhite.glb'
   const testModel2 = '/models/scxHatnewBlue.glb'
   const testModel3 = '/models/scxHatnewCream.glb'
+  
+  const modelsInfos: modelInfo[] = [
+    {
+      name: "Intersections",
+      url: testModel,
+      colors: ["Black", "White"],
+      description: "Black and White, Light and Dark cease to exist without each other. It is only at their intersection that color is born. The SCX &#39;Intersections&#39; design represents rebirth.",
+      otherInfo: ["Front Panels: 100% Cotton Twill", "Mid and Back Panels: 100% Polyester Mesh", "Snapback: 7 Position Adjustable"]
+    },
+    {
+      name: "Day and Night",
+      url: testModel,
+      colors: ["Blue", "Yellow"],
+      description: "Through light and dark, we experience day and night. The blues are born out of darkness, with the help of light. Yellow is born out of the light, with the help of the dark. The SCX &#39;Day and Night&#39; design represents balance.",
+      otherInfo: ["Front Panels: 100% Cotton Twill", "Mid and Back Panels: 100% Polyester Mesh", "Snapback: 7 Position Adjustable"]
+    },
+    {
+      name: "Earth",
+      url: testModel,
+      colors: ["Beige"],
+      description: "A picture comes into being in the encounter of light and dark, and the earth comes to us in the shape of pictures. The SCX &#39;Earth&#39; design represents seeing the bigger picture through your roots.",
+      otherInfo: ["Front Panels: 100% Cotton Twill", "Mid and Back Panels: 100% Polyester Mesh", "Snapback: 7 Position Adjustable"]
+    },
 
+  ]
   const { scrollYProgress } = useScroll()
 
   const changeSvgWidth = (newWidth: number) => {
@@ -49,9 +73,9 @@ const Store: NextPage = () => {
           </div>
         </motion.div>
         <motion.div className={styles.modelsContainer}>
-          <Model alt="Social Crucifixion Hat" src={testModel} />
-          <Model alt="Social Crucifixion Hat" src={testModel2} />
-          <Model alt="Social Crucifixion Hat" src={testModel3} />
+          {modelsInfos.map(item=>{
+            return <Model alt="Social Crucifixion Hat" src={item.url} info={item} />
+          })}
         </motion.div>
         <motion.div className={styles.infoPanel} initial={{ width: 0 }} animate={{ width: isInfoOpen === true ? "clamp(500px, 50vw, 100%)" : 0, transition: { duration: 0.5 } }}>
           <div className={styles.customShape} style={{ width: `${svgDividerWidth}px` }}>
