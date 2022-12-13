@@ -6,6 +6,7 @@ import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { StaticImageData } from 'next/image';
 
 //aws config
 const accessKey = process.env.ACCESS_KEY
@@ -40,6 +41,7 @@ type modelInfo = {
   url: string,
   price: string,
   colors: string[],
+  images: StaticImageData[],
   description: string,
   otherInfo: string[]
 }
@@ -68,7 +70,15 @@ export default async function handler(
           const command = new GetObjectCommand(params)
           urlsPromise.push(getSignedUrl(s3, command, { expiresIn: 30 })
             .then(url => {
-              info.push({ name: doc.data().name, url: url, colors: doc.data().colors, price: doc.data().price ? doc.data().price : "", description: doc.data().description ? doc.data().description : "", otherInfo: doc.data().otherInfo ? doc.data().otherInfo : [""] })
+              info.push({
+                name: doc.data().name,
+                url: url,
+                colors: doc.data().colors,
+                images: doc.data().images ? doc.data().images : "",
+                price: doc.data().price ? doc.data().price : "",
+                description: doc.data().description ? doc.data().description : "",
+                otherInfo: doc.data().otherInfo ? doc.data().otherInfo : [""]
+              })
             }).catch(error => {
               console.log(error)
               reject()
