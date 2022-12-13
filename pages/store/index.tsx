@@ -5,7 +5,7 @@ import { NextPage } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import Script from 'next/script'
-import { motion, useScroll } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 import { modelInfo, Data } from "../api/models"
 import Model from '../../components/model'
@@ -32,32 +32,20 @@ const Store: NextPage = () => {
     },
     {
       name: "Day and Night",
-      url: testModel,
+      url: testModel2,
       colors: ["Blue", "Yellow"],
       description: "Through light and dark, we experience day and night. The blues are born out of darkness, with the help of light. Yellow is born out of the light, with the help of the dark. The SCX &#39;Day and Night&#39; design represents balance.",
       otherInfo: ["Front Panels: 100% Cotton Twill", "Mid and Back Panels: 100% Polyester Mesh", "Snapback: 7 Position Adjustable"]
     },
     {
       name: "Earth",
-      url: testModel,
+      url: testModel3,
       colors: ["Beige"],
       description: "A picture comes into being in the encounter of light and dark, and the earth comes to us in the shape of pictures. The SCX &#39;Earth&#39; design represents seeing the bigger picture through your roots.",
       otherInfo: ["Front Panels: 100% Cotton Twill", "Mid and Back Panels: 100% Polyester Mesh", "Snapback: 7 Position Adjustable"]
     },
 
   ]
-  const { scrollYProgress } = useScroll()
-
-  const changeSvgWidth = (newWidth: number) => {
-    setsvgDividerWidth(() => newWidth)
-  }
-
-  useEffect(() => {
-
-    return scrollYProgress.onChange((latest) => {
-      changeSvgWidth(60 + (100 * (1 - parseFloat(latest.toFixed(2))))) // changes the scrollProgress from 0 -> 1 to 1 -> 0 then to 160 -> 100
-    })
-  }, [scrollYProgress])
 
   return (
     <InfoContext.Provider value={{ isInfoOpen: isInfoOpen, setIsInfoOpen: setIsInfoOpen }}>
