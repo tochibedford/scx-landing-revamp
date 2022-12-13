@@ -28,7 +28,13 @@
     border-radius: 20px;
     height: 80%;
     object-fit: contain;
-
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.previewImageContainer img:hover {
+    transform: translate(-15px, -15px);
+    box-shadow: 5px 5px 0px rgb(228, 252, 255),
+                10px 10px 0px rgb(162, 163, 163),
+                15px 15px 0px rgb(88, 88, 88);
 }
 
 .modelContainer .toggleContainer .toggle{
