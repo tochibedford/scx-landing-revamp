@@ -19,10 +19,15 @@
     min-height: 350px;
     border-radius: 62px;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .previewImageContainer img {
-    border-radius: 10px;
+    border-radius: 20px;
+    height: 80%;
+    object-fit: contain;
 
 }
 

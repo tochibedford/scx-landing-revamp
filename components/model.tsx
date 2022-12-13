@@ -12,8 +12,6 @@ interface IModel {
   alt: string
   src: string
   info: modelInfo,
-  isInfoOpen: boolean,
-  setIsInfoOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 declare global {
@@ -29,9 +27,9 @@ declare global {
   }
 }
 
-const Model = ({ alt, src, info, isInfoOpen, setIsInfoOpen }: IModel) => {
+const Model = ({ alt, src, info }: IModel) => {
   const modelContainerRef = useRef<HTMLDivElement>(null)
-  // const { isInfoOpen, setIsInfoOpen } = useContext(InfoContext)
+  const { isInfoOpen, setIsInfoOpen } = useContext(InfoContext)
   const [threeD, setThreeD] = useState(true)
 
   const handleClick = () => {
@@ -67,7 +65,7 @@ const Model = ({ alt, src, info, isInfoOpen, setIsInfoOpen }: IModel) => {
   return (
     <motion.div ref={modelContainerRef} className={styles.modelContainer} initial={{ opacity: 0, scale: 0.3, x: "-10%" }} whileInView={{ x: 0, opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } }} viewport={{ once: false, amount: 0.5 }}>
       {threeD ? <model-viewer alt={alt} src={src} camera-target="0 -0.5m 0" shadow-intensity="1" camera-controls disable-pan disable-tap disable-zoom touch-action="pan-y">
-      </model-viewer> : <div className={styles.previewImageContainer}><Image layout="fill" objectFit="contain" alt="open info button" src={info.images[0]} /></div>}
+      </model-viewer> : <div className={styles.previewImageContainer}><img alt="open info button" src={info.images[0].src} /></div>}
 
       <div className={styles.toggleContainer}>
         <div className={styles.toggle}>
