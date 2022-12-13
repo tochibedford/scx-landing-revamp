@@ -1,8 +1,5 @@
-import scxBanner from '../public/images/scxBanner.png'
 
 import scxLogo from "../public/images/scxLogo.png"
-
-import { motion } from 'framer-motion'
 
 import Link from 'next/link';
 import styles from '../styles/Footer.module.css'
@@ -10,8 +7,6 @@ import { useEffect, useRef, useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
 
 const Footer = () => {
-    const [currentImages, setCurrentImages] = useState<StaticImageData[] | null>(null)
-    const [currentPositions, setCurrentPositions] = useState<[number, number][]>([[0, 0], [0, 0], [0, 0], [0, 0]])
     const scxBannerRef = useRef<HTMLDivElement>(null)
     const [positionX, setPositionX] = useState(0.0);
 

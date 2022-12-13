@@ -6,6 +6,7 @@ import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { StaticImageData } from 'next/image';
 
 //aws config
 const accessKey = process.env.ACCESS_KEY
@@ -15,8 +16,8 @@ const bucketName = process.env.BUCKET_NAME
 
 const s3 = new S3Client({
   credentials: {
-      accessKeyId: accessKey as string,
-      secretAccessKey: secretAccessKey as string
+    accessKeyId: accessKey as string,
+    secretAccessKey: secretAccessKey as string
   },
   region: bucketRegion as string
 })
@@ -38,24 +39,28 @@ const db = getFirestore(app);
 type modelInfo = {
   name: string,
   url: string,
-  colors: string
+  price: string,
+  colors: string[],
+  images: StaticImageData[],
+  description: string,
+  otherInfo: string[]
 }
 
 type Data = {
   data: modelInfo[]
 }
 
-export type {modelInfo, Data}
+export type { modelInfo, Data }
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  return new Promise<void>((resolve, reject)=>{
+  return new Promise<void>((resolve, reject) => {
     const urlsPromise: Promise<void>[] = []
     const info: modelInfo[] = []
     getDocs(collection(db, "models")) //reading from database
-      .then(querySnapshot=>{
+      .then(querySnapshot => {
         querySnapshot.forEach((doc) => {
 
           const params = {
@@ -64,27 +69,35 @@ export default async function handler(
           }
           const command = new GetObjectCommand(params)
           urlsPromise.push(getSignedUrl(s3, command, { expiresIn: 30 })
-                    .then(url=>{  
-                        info.push({name: doc.data().name, url: url, colors: doc.data().colors})
-                    }).catch(error=>{
-                      console.log(error)
-                      reject()
-                    })
+            .then(url => {
+              info.push({
+                name: doc.data().name,
+                url: url,
+                colors: doc.data().colors,
+                images: doc.data().images ? doc.data().images : "",
+                price: doc.data().price ? doc.data().price : "",
+                description: doc.data().description ? doc.data().description : "",
+                otherInfo: doc.data().otherInfo ? doc.data().otherInfo : [""]
+              })
+            }).catch(error => {
+              console.log(error)
+              reject()
+            })
           )
         });
 
-        Promise.all(urlsPromise).then(()=>{
+        Promise.all(urlsPromise).then(() => {
           res.status(200).json({ data: info })
           // resolve()
-        }).catch(error=>{
+        }).catch(error => {
           console.log(error)
           // reject()
         })
 
-      }).catch(error=>{
+      }).catch(error => {
         console.log(error)
         reject()
       })
   })
-  
+
 }

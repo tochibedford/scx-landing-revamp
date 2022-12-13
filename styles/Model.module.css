@@ -11,7 +11,75 @@
     height: 100%;
     min-height: 350px;
     border-radius: 62px;
-    /* background-color: white; */
+}
+
+.modelContainer .previewImageContainer {
+    width: clamp(300px, 60%, 1000px);
+    height: 100%;
+    min-height: 350px;
+    border-radius: 62px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.previewImageContainer img {
+    border-radius: 20px;
+    height: 80%;
+    object-fit: contain;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.previewImageContainer img:hover {
+    transform: translate(-15px, -15px);
+    box-shadow: 5px 5px 0px rgb(228, 252, 255),
+                10px 10px 0px rgb(162, 163, 163),
+                15px 15px 0px rgb(88, 88, 88);
+}
+
+.modelContainer .toggleContainer .toggle{
+    width: 10rem;
+    height: 5rem;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 3em;
+    position: relative;
+    display: flex;
+    font-size: 3em;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.modelContainer .toggleContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.toggle .option {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.toggle input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.toggle input:checked ~ .option {
+    background-color: black;
+    color: white;
 }
 
 .openInfo {
@@ -37,7 +105,6 @@
     }
 
     30% {
-        /* scale: 1.2; */
         transform: translateX(-3%) translateY(-2%);
     }
 }
@@ -108,7 +175,7 @@
 }
 
 .price {
-    width: 40%;
+    width: max-content;
     flex: 0.15;
     border-radius: 10px;
     color: white;
@@ -116,6 +183,7 @@
     padding: 5px 15px;
     display: flex;
     align-items: center;
+    font-size: 2rem;
 }
 
 .productDescription {
@@ -125,6 +193,8 @@
     color: white;
     background-color: black;
     padding: 15px;
+    font-size: 1.7rem;
+    height: max-content;
 }
 
 .closeInfoContainer {
@@ -159,4 +229,14 @@
         opacity: 1;
     }
 
+}
+
+@media screen and (max-width: 768px) {
+    .toggleContainer {
+        width: 100%;
+        padding: 2em 4em; 
+    }
+    .toggleContainer .toggle{
+       display: flex;
+    }
 }
