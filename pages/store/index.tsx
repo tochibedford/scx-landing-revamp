@@ -73,8 +73,8 @@ const Store: NextPage = () => {
           </div>
         </motion.div>
         <motion.div className={styles.modelsContainer}>
-          {modelsInfos.map(item=>{
-            return <Model alt="Social Crucifixion Hat" src={item.url} info={item} />
+          {modelsInfos.map((item, index)=>{
+            return <Model alt="Social Crucifixion Hat" key={index + Math.random()} src={item.url} info={item} />
           })}
         </motion.div>
         <motion.div className={styles.infoPanel} initial={{ width: 0 }} animate={{ width: isInfoOpen === true ? "clamp(500px, 50vw, 100%)" : 0, transition: { duration: 0.5 } }}>
