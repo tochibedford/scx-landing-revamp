@@ -1,7 +1,7 @@
 .footerContainer {
     position: relative;
     width: 100vw;
-    background: rgb(236, 236, 236);
+    background: rgb(243, 243, 243);
     margin-top: 0px;
     padding: 50px 100px;
     font-size: clamp(1.5em, 1vw, 1.8em);
@@ -121,17 +121,13 @@
 
     .email {
         text-align: center;
-        border-bottom: 1.5px solid white;
     }
 
     .address {
         padding-right: 0;
-        border-top: 0.6px dashed white;
-        border-bottom: 1.5px solid white;
     }
 
     .socials {
         text-align: center;
-        border-top: 0.6px dashed white;
     }
 }

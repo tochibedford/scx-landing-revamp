@@ -30,6 +30,7 @@ declare global {
 const Model = ({alt, src, info}: IModel) => {
   const modelContainerRef = useRef<HTMLDivElement>(null)
   const {isInfoOpen, setIsInfoOpen} = useContext(InfoContext)
+  console.log(info)
   const handleClick = ()=>{
     setIsInfoOpen(prev=>{
       return !prev
@@ -55,6 +56,7 @@ const Model = ({alt, src, info}: IModel) => {
       window.removeEventListener('resize', handleResize)
     }
   }, [])
+
   return ( 
       <motion.div ref={modelContainerRef} className={styles.modelContainer} initial={{opacity: 0, scale: 0.3, x: "-10%"}} whileInView={{x: 0, opacity: 1, scale: 1, transition:{ duration:0.6, ease: "easeOut"}}} viewport={{once: false, amount:0.5}}>
           <model-viewer alt={alt} src={src} camera-target="0 -0.5m 0" shadow-intensity="1" camera-controls disable-pan disable-tap disable-zoom touch-action="pan-y">
@@ -63,12 +65,12 @@ const Model = ({alt, src, info}: IModel) => {
           {isInfoOpen===true ? <>
           <div className={`${styles.infoContainer} ${styles.infoContainerRight}`}>
             <div className={styles.titleIcon}>
-              <div className={styles.productTitle}>SCX OG HAT</div>
+              <div className={styles.productTitle}>{info.name}</div>
               <div className={styles.cartIcon}> <Image layout="fill" objectFit='contain' alt="cartIcon" src={cartIcon}/> </div>
             </div>
-            <div className={styles.price}>XXX.XX</div>
+            <div className={styles.price}>{info.price}</div>
             <div className={styles.productDescription}>
-              This stunning hat is ... Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque sed adipisci quod earum voluptatum iure pariatur rerum placeat.
+              {info.description}
             </div>
             <div className={styles.closeInfoContainer} onClick={handleClick}><Image layout='fill' objectFit='contain' alt="close Info" src={closeInfoIcon}/></div>
           </div>

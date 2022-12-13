@@ -25,20 +25,23 @@ const Store: NextPage = () => {
   const modelsInfos: modelInfo[] = [
     {
       name: "Intersections",
+      price: "$39.99",
       url: testModel,
       colors: ["Black", "White"],
-      description: "Black and White, Light and Dark cease to exist without each other. It is only at their intersection that color is born. The SCX &#39;Intersections&#39; design represents rebirth.",
+      description: "Black and White, Light and Dark cease to exist without each other. It is only at their intersection that color is born. The SCX 'Intersections' design represents rebirth.",
       otherInfo: ["Front Panels: 100% Cotton Twill", "Mid and Back Panels: 100% Polyester Mesh", "Snapback: 7 Position Adjustable"]
     },
     {
       name: "Day and Night",
+      price: "$39.99",
       url: testModel2,
       colors: ["Blue", "Yellow"],
-      description: "Through light and dark, we experience day and night. The blues are born out of darkness, with the help of light. Yellow is born out of the light, with the help of the dark. The SCX &#39;Day and Night&#39; design represents balance.",
+      description: "Through light and dark, we experience day and night. The blues are born out of darkness, with the help of light. Yellow is born out of the light, with the help of the dark. The SCX 'Day and Night' design represents balance.",
       otherInfo: ["Front Panels: 100% Cotton Twill", "Mid and Back Panels: 100% Polyester Mesh", "Snapback: 7 Position Adjustable"]
     },
     {
       name: "Earth",
+      price: "$39.99",
       url: testModel3,
       colors: ["Beige"],
       description: "A picture comes into being in the encounter of light and dark, and the earth comes to us in the shape of pictures. The SCX &#39;Earth&#39; design represents seeing the bigger picture through your roots.",
@@ -48,7 +51,7 @@ const Store: NextPage = () => {
   ]
 
   return (
-    <InfoContext.Provider value={{ isInfoOpen: isInfoOpen, setIsInfoOpen: setIsInfoOpen }}>
+    <InfoContext.Provider value={{ isInfoOpen: isInfoOpen, setIsInfoOpen: setIsInfoOpen, info: modelsInfos }}>
       <motion.main className={styles.container} animate={{ backgroundColor: isInfoOpen === true ? "rgba(0,0,0,255)" : "rgba(255,255,255,255)" }}>
         <motion.div animate={{ height: "20vh", fontSize: "45px", transition: { ease: "easeInOut", delay: 2 } }} className={styles.title}>
           <Link href="/">

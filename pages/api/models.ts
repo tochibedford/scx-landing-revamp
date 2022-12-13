@@ -38,6 +38,7 @@ const db = getFirestore(app);
 type modelInfo = {
   name: string,
   url: string,
+  price: string,
   colors: string[],
   description: string,
   otherInfo: string[]
@@ -67,7 +68,7 @@ export default async function handler(
           const command = new GetObjectCommand(params)
           urlsPromise.push(getSignedUrl(s3, command, { expiresIn: 30 })
             .then(url => {
-              info.push({ name: doc.data().name, url: url, colors: doc.data().colors, description: doc.data().description ? doc.data().description : "", otherInfo: doc.data().otherInfo ? doc.data().otherInfo : [""] })
+              info.push({ name: doc.data().name, url: url, colors: doc.data().colors, price: doc.data().price ? doc.data().price : "", description: doc.data().description ? doc.data().description : "", otherInfo: doc.data().otherInfo ? doc.data().otherInfo : [""] })
             }).catch(error => {
               console.log(error)
               reject()
