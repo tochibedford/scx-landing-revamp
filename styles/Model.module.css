@@ -9,7 +9,7 @@
 .modelContainer model-viewer {
     width: clamp(300px, 60%, 1000px);
     height: 100%;
-    min-height: 350px;
+    min-height: 300px;
     border-radius: 62px;
 }
 
@@ -55,8 +55,9 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
-
+            
 .toggle .option {
     position: relative;
     display: grid;

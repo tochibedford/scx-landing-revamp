@@ -39,6 +39,7 @@ export default function BuyNow({ id }) {
                                     ':hover': {
                                         'color': 'white',
                                         'background-color': 'black',
+                                        'border': '1px solid white',
                                     },
                                     ":focus": {
                                         'color': 'white',
@@ -59,7 +60,7 @@ export default function BuyNow({ id }) {
                             }
                         },
                         toggle: {
-                            "styles": {
+                            styles: {
                                 "toggle": {
                                     "font-family": 'Courier New, Courier, monospace',
                                     "background-color": "#000000",
@@ -75,6 +76,30 @@ export default function BuyNow({ id }) {
                                     "font-size": "17px"
                                 }
                             },
+                        },
+                        cart: {
+                            'font-weight': '700',
+                            'font-family': 'Courier New, Courier, monospace',
+                            styles: {
+                                button: {
+                                    'background-color': 'transparent',
+                                    'color': 'black',
+                                    'font-weight': '700',
+                                    'font-family': 'Courier New, Courier, monospace',
+                                    'width': '100% !important',
+                                    'font-size': '1.2em',
+                                    'border': '1px solid black',
+                                    ':hover': {
+                                        'color': 'white',
+                                        'background-color': 'black',
+                                        'border': '1px solid white',
+                                    },
+                                    ":focus": {
+                                        'color': 'white',
+                                        'background-color': 'black',
+                                    }
+                                }
+                            }
                         }
                     },
                 });
