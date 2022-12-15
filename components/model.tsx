@@ -89,8 +89,8 @@ const Model = ({ alt, src, info }: IModel) => {
           <div className={styles.productDescription}>
             {info.description}
             <ul>
-              {info.otherInfo.map(item => {
-                return <li>{item}</li>
+              {info.otherInfo.map((item, index) => {
+                return <li key={index}>{item}</li>
               })}
             </ul>
           </div>
@@ -105,8 +105,8 @@ const Model = ({ alt, src, info }: IModel) => {
           <div className={styles.productDescription}>
             {info.description}
             <ul>
-              {info.otherInfo.map(item => {
-                return <li>{item}</li>
+              {info.otherInfo.map((item, index) => {
+                return <li key={index}>{item}</li>
               })}
             </ul>
           </div>
