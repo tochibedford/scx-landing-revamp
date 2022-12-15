@@ -88,6 +88,11 @@ const Model = ({ alt, src, info }: IModel) => {
           <div className={styles.price}>{info.price}</div>
           <div className={styles.productDescription}>
             {info.description}
+            <ul>
+              {info.otherInfo.map(item => {
+                return <li>{item}</li>
+              })}
+            </ul>
           </div>
           <div className={styles.closeInfoContainer} onClick={handleClick}><Image layout='fill' objectFit='contain' alt="close Info" src={closeInfoIcon} /></div>
         </div>
@@ -99,6 +104,11 @@ const Model = ({ alt, src, info }: IModel) => {
           <div className={styles.price}>{info.price}</div>
           <div className={styles.productDescription}>
             {info.description}
+            <ul>
+              {info.otherInfo.map(item => {
+                return <li>{item}</li>
+              })}
+            </ul>
           </div>
           <div className={`${styles.closeInfoContainer} ${styles.closeBottomInfoContainer}`} onClick={handleClick}><Image layout='fill' objectFit='cover' alt="close Info" src={closeInfoIcon} /></div>
         </div>
