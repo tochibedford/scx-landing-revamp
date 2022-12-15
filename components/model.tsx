@@ -83,7 +83,7 @@ const Model = ({ alt, src, info }: IModel) => {
         <div className={`${styles.infoContainer} ${styles.infoContainerRight}`}>
           <div className={styles.titleIcon}>
             <div className={styles.productTitle}>{info.name}</div>
-            <div className={styles.cartIcon}> <Image layout="fill" objectFit='contain' alt="cartIcon" src={cartIcon} /> </div>
+            {/* <div className={styles.cartIcon}> <Image layout="fill" objectFit='contain' alt="cartIcon" src={cartIcon} /> </div> */}
           </div>
           <div className={styles.price}>{info.price}</div>
           <div className={styles.productDescription}>
@@ -94,7 +94,7 @@ const Model = ({ alt, src, info }: IModel) => {
         <div className={`${styles.infoContainer} ${styles.infoContainerBottom}`}>
           <div className={styles.titleIcon}>
             <div className={styles.productTitle}>{info.name}</div>
-            <div className={styles.cartIcon}> <Image layout="fill" objectFit='contain' alt="cartIcon" src={cartIcon} /> </div>
+            {/* <div className={styles.cartIcon}> <Image layout="fill" objectFit='contain' alt="cartIcon" src={cartIcon} /> </div> */}
           </div>
           <div className={styles.price}>{info.price}</div>
           <div className={styles.productDescription}>
