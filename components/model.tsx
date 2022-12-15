@@ -7,6 +7,11 @@ import closeInfoIcon from '../public/images/closeInfo.svg'
 import { ChangeEvent, useContext, useEffect, useRef, useState } from 'react'
 import { InfoContext } from './contexts/InfoContext'
 import { modelInfo } from '../pages/api/models'
+import dynamic from 'next/dynamic';
+
+const DynamicBuyNow = dynamic(() => import('../components/BuyNow'), {
+  ssr: false
+});
 
 interface IModel {
   alt: string
@@ -103,6 +108,7 @@ const Model = ({ alt, src, info }: IModel) => {
             <Image layout="fill" objectFit="contain" alt="open info button" src={openInfo} />
           </motion.div>
         </>}
+      <DynamicBuyNow id={info.productID} />
     </motion.div>
 
   );

@@ -39,6 +39,7 @@ const db = getFirestore(app);
 type modelInfo = {
   name: string,
   url: string,
+  productID: number
   price: string,
   colors: string[],
   images: StaticImageData[],
@@ -73,6 +74,7 @@ export default async function handler(
               info.push({
                 name: doc.data().name,
                 url: url,
+                productID: Number(doc.data().productID),
                 colors: doc.data().colors,
                 images: doc.data().images ? doc.data().images : "",
                 price: doc.data().price ? doc.data().price : "",
