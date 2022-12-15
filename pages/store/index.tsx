@@ -32,6 +32,7 @@ const Store: NextPage = () => {
     {
       name: "Intersections",
       price: "$39.99",
+      productID: 8041496150291,
       url: testModel,
       colors: ["Black", "White"],
       images: [intersectionsFront, intersectionsCandid],
@@ -41,6 +42,7 @@ const Store: NextPage = () => {
     {
       name: "Day and Night",
       price: "$39.99",
+      productID: 8041531015443,
       url: testModel2,
       colors: ["Blue", "Yellow"],
       images: [dayNightFront, dayNightCandid],
@@ -50,6 +52,7 @@ const Store: NextPage = () => {
     {
       name: "Earth",
       price: "$39.99",
+      productID: 8041530097939,
       url: testModel3,
       colors: ["Beige"],
       images: [earthFront, earthCandid],
@@ -74,7 +77,7 @@ const Store: NextPage = () => {
         </motion.div>
         <motion.div className={styles.modelsContainer}>
           {modelsInfos.map((item, index) => {
-            return <Model alt="Social Crucifixion Hat" key={index} src={item.url} info={item} />
+            return <Model alt="Social Crucifixion Hat" key={item.productID} src={item.url} info={item} />
           })}
         </motion.div>
         <motion.div className={styles.infoPanel} initial={{ width: 0 }} animate={{ width: isInfoOpen === true ? "clamp(500px, 50vw, 100%)" : 0, transition: { duration: 0.5 } }}>

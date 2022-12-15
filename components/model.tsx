@@ -7,6 +7,11 @@ import closeInfoIcon from '../public/images/closeInfo.svg'
 import { ChangeEvent, useContext, useEffect, useRef, useState } from 'react'
 import { InfoContext } from './contexts/InfoContext'
 import { modelInfo } from '../pages/api/models'
+import dynamic from 'next/dynamic';
+
+const DynamicBuyNow = dynamic(() => import('../components/BuyNow'), {
+  ssr: false
+});
 
 interface IModel {
   alt: string
@@ -78,22 +83,32 @@ const Model = ({ alt, src, info }: IModel) => {
         <div className={`${styles.infoContainer} ${styles.infoContainerRight}`}>
           <div className={styles.titleIcon}>
             <div className={styles.productTitle}>{info.name}</div>
-            <div className={styles.cartIcon}> <Image layout="fill" objectFit='contain' alt="cartIcon" src={cartIcon} /> </div>
+            {/* <div className={styles.cartIcon}> <Image layout="fill" objectFit='contain' alt="cartIcon" src={cartIcon} /> </div> */}
           </div>
           <div className={styles.price}>{info.price}</div>
           <div className={styles.productDescription}>
             {info.description}
+            <ul>
+              {info.otherInfo.map((item, index) => {
+                return <li key={index}>{item}</li>
+              })}
+            </ul>
           </div>
           <div className={styles.closeInfoContainer} onClick={handleClick}><Image layout='fill' objectFit='contain' alt="close Info" src={closeInfoIcon} /></div>
         </div>
         <div className={`${styles.infoContainer} ${styles.infoContainerBottom}`}>
           <div className={styles.titleIcon}>
             <div className={styles.productTitle}>{info.name}</div>
-            <div className={styles.cartIcon}> <Image layout="fill" objectFit='contain' alt="cartIcon" src={cartIcon} /> </div>
+            {/* <div className={styles.cartIcon}> <Image layout="fill" objectFit='contain' alt="cartIcon" src={cartIcon} /> </div> */}
           </div>
           <div className={styles.price}>{info.price}</div>
           <div className={styles.productDescription}>
             {info.description}
+            <ul>
+              {info.otherInfo.map((item, index) => {
+                return <li key={index}>{item}</li>
+              })}
+            </ul>
           </div>
           <div className={`${styles.closeInfoContainer} ${styles.closeBottomInfoContainer}`} onClick={handleClick}><Image layout='fill' objectFit='cover' alt="close Info" src={closeInfoIcon} /></div>
         </div>
@@ -103,6 +118,7 @@ const Model = ({ alt, src, info }: IModel) => {
             <Image layout="fill" objectFit="contain" alt="open info button" src={openInfo} />
           </motion.div>
         </>}
+      <DynamicBuyNow id={info.productID} />
     </motion.div>
 
   );
