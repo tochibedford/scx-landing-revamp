@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import Image from 'next/image';
 import styles from '../styles/Model.module.css'
 import openInfo from '../public/images/OpenInfo.svg'
-import cartIcon from '../public/images/cart.svg'
 import closeInfoIcon from '../public/images/closeInfo.svg'
 import { ChangeEvent, useContext, useEffect, useRef, useState } from 'react'
 import { InfoContext } from './contexts/InfoContext'
@@ -75,7 +74,7 @@ const Model = ({ alt, src, info }: IModel) => {
       <div className={styles.toggleContainer}>
         <div className={styles.toggle}>
           <input type="checkbox" checked={threeD} onChange={handleToggle} />
-          <div className={styles.option}>3D</div>
+          <div className={styles.option}>DIGITAL</div>
         </div>
       </div>
 

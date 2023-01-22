@@ -38,7 +38,6 @@
 }
 
 .modelContainer .toggleContainer .toggle{
-    width: 10rem;
     height: 5rem;
     background-color: white;
     border: 2px solid black;
@@ -64,6 +63,7 @@
     place-items: center;
     width: 100%;
     height: 100%;
+    padding: 0em 2rem;
     transition: background-color 0.3s, color 0.3s;
 }
 
