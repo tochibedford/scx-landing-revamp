@@ -31,8 +31,8 @@ const Store: NextPage = () => {
   const modelsInfos: modelInfo[] = [
     {
       name: "Intersections",
-      price: "$39.99",
-      productID: 8041496150291,
+      price: "$49.99",
+      productID: 8010762191092,
       url: testModel,
       colors: ["Black", "White"],
       images: [intersectionsFront, intersectionsCandid],
@@ -41,8 +41,8 @@ const Store: NextPage = () => {
     },
     {
       name: "Day and Night",
-      price: "$39.99",
-      productID: 8041531015443,
+      price: "$49.99",
+      productID: 8010767237364,
       url: testModel2,
       colors: ["Blue", "Yellow"],
       images: [dayNightFront, dayNightCandid],
@@ -51,8 +51,8 @@ const Store: NextPage = () => {
     },
     {
       name: "Earth",
-      price: "$39.99",
-      productID: 8041530097939,
+      price: "$49.99",
+      productID: 8010768580852,
       url: testModel3,
       colors: ["Beige"],
       images: [earthFront, earthCandid],
@@ -76,7 +76,7 @@ const Store: NextPage = () => {
           </div>
         </motion.div>
         <motion.div className={styles.modelsContainer}>
-          {modelsInfos.map((item, index) => {
+          {modelsInfos.map(item => {
             return <Model alt="Social Crucifixion Hat" key={item.productID} src={item.url} info={item} />
           })}
         </motion.div>

@@ -10,26 +10,26 @@ import Link from 'next/link'
 const IndexHome: NextPage = () => {
   const [showLoader, setShowLoader] = useState(true)
   const figuresContainerRef = useRef<HTMLDivElement>(null)
-  
-  const locked = [0,2] // use this to set the index of locked menu items
+
+  const locked = [0, 2] // use this to set the index of locked menu items
   const menu = ["CHOOSE YOUR FATE", "STORE", "TABULA RASA"]
   const scxFigureElements: ReactNode[] = []
 
-  menu.forEach((item, index)=>{
-    if(index != Math.floor((menu.length-1)/2)){ //checks for the center menu item
+  menu.forEach((item, index) => {
+    if (index != Math.floor((menu.length - 1) / 2)) { //checks for the center menu item
       scxFigureElements.push(
-        <Link href={locked.includes(index)? "":`/${item.toLowerCase().replaceAll(" ", "-")}`} key={item+index}>
-          <a className={`figureContainer ${styles.figureContainer} ${locked.includes(index)? styles.locked:""}`}>
-            <Image layout="fill" objectFit="contain" src={locked.includes(index)? lockIcon:scxFigure} alt="scx figure" priority={index === 0? true : false } />
+        <Link href={locked.includes(index) ? "" : `/${item.toLowerCase().replaceAll(" ", "-")}`} key={item + index}>
+          <a className={`figureContainer ${styles.figureContainer} ${locked.includes(index) ? styles.locked : ""}`}>
+            <Image layout="fill" objectFit="contain" src={locked.includes(index) ? lockIcon : scxFigure} alt="scx figure" priority={index === 0 ? true : false} />
             <div className={styles.menuTitle}>{item}</div>
           </a>
         </Link>
       )
-    }else{
+    } else {
       scxFigureElements.push(
-        <Link href={locked.includes(index)? "":`/${item.toLowerCase().replaceAll(" ", "-")}`} key={item+index}>
-          <a className={`figureContainer ${styles.figureContainer} ${styles.center} ${locked.includes(index)? styles.locked:""}`}>
-            <Image layout="fill" objectFit="contain" src={locked.includes(index)? lockIcon:scxFigure} alt="scx figure"/>
+        <Link href={locked.includes(index) ? "" : `/${item.toLowerCase().replaceAll(" ", "-")}`} key={item + index}>
+          <a className={`figureContainer ${styles.figureContainer} ${styles.center} ${locked.includes(index) ? styles.locked : ""}`}>
+            <Image layout="fill" objectFit="contain" src={locked.includes(index) ? lockIcon : scxFigure} alt="scx figure" />
             <div className={styles.menuTitle}>{item}</div>
           </a>
         </Link>
@@ -39,7 +39,7 @@ const IndexHome: NextPage = () => {
 
   return (
     <div className={styles.app}>
-      {showLoader && <Loader setShowLoader={setShowLoader}/>}
+      {showLoader && <Loader setShowLoader={setShowLoader} />}
       <div className={styles.pageContainer}>
         <div className={styles.figuresContainer} ref={figuresContainerRef}>
           {scxFigureElements}

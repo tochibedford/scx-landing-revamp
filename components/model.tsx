@@ -9,7 +9,7 @@ import { InfoContext } from './contexts/InfoContext'
 import { modelInfo } from '../pages/api/models'
 import dynamic from 'next/dynamic';
 
-const DynamicBuyNow = dynamic(() => import('../components/BuyNow'), {
+const DynamicBuyNow = dynamic(() => import('./BuyNow/index.jsx'), {
   ssr: false
 });
 

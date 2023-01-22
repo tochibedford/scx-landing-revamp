@@ -9,7 +9,13 @@ html{
   font-size: 62.5%;
   cursor: crosshair;
   overflow-x: hidden;
+  color-scheme: dark;
   
+}
+
+body {
+  color: white;
+  background: black;
 }
 
 *::-webkit-scrollbar {
@@ -24,14 +30,4 @@ html{
   box-shadow: inset 0 0 1px 3px rgba(252, 252, 252, 0.3);
   background-color: rgb(61, 61, 61);
   border-radius: 20px;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
 }
