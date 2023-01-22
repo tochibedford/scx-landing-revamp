@@ -48,8 +48,9 @@
     height: 100%;
 }
 
-.address {
+.copyright {
     text-align: center;
+    font-weight: 600;
 }
 
 .socials {
