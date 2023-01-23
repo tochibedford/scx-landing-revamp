@@ -92,6 +92,10 @@ const Model = ({ alt, src, info }: IModel) => {
                 return <li key={index}>{item}</li>
               })}
             </ul>
+
+            <br />
+            **Orders will be shipped beginning on January 30, 2023 and are currently limited to addresses in the US.
+
           </div>
           <div className={styles.closeInfoContainer} onClick={handleClick}><Image layout='fill' objectFit='contain' alt="close Info" src={closeInfoIcon} /></div>
         </div>
@@ -108,6 +112,7 @@ const Model = ({ alt, src, info }: IModel) => {
                 return <li key={index}>{item}</li>
               })}
             </ul>
+            Orders will be shipped beginning on January 30, 2023 and are currently limited to addresses in the US.
           </div>
           <div className={`${styles.closeInfoContainer} ${styles.closeBottomInfoContainer}`} onClick={handleClick}><Image layout='fill' objectFit='cover' alt="close Info" src={closeInfoIcon} /></div>
         </div>
