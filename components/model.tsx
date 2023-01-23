@@ -2,14 +2,13 @@ import { motion } from 'framer-motion'
 import Image from 'next/image';
 import styles from '../styles/Model.module.css'
 import openInfo from '../public/images/OpenInfo.svg'
-import cartIcon from '../public/images/cart.svg'
 import closeInfoIcon from '../public/images/closeInfo.svg'
 import { ChangeEvent, useContext, useEffect, useRef, useState } from 'react'
 import { InfoContext } from './contexts/InfoContext'
 import { modelInfo } from '../pages/api/models'
 import dynamic from 'next/dynamic';
 
-const DynamicBuyNow = dynamic(() => import('../components/BuyNow'), {
+const DynamicBuyNow = dynamic(() => import('./BuyNow/index.jsx'), {
   ssr: false
 });
 
@@ -75,7 +74,7 @@ const Model = ({ alt, src, info }: IModel) => {
       <div className={styles.toggleContainer}>
         <div className={styles.toggle}>
           <input type="checkbox" checked={threeD} onChange={handleToggle} />
-          <div className={styles.option}>3D</div>
+          <div className={styles.option}>DIGITAL</div>
         </div>
       </div>
 
@@ -93,6 +92,10 @@ const Model = ({ alt, src, info }: IModel) => {
                 return <li key={index}>{item}</li>
               })}
             </ul>
+
+            <br />
+            **Orders will be shipped beginning on January 30, 2023 and are currently limited to addresses in the US.
+
           </div>
           <div className={styles.closeInfoContainer} onClick={handleClick}><Image layout='fill' objectFit='contain' alt="close Info" src={closeInfoIcon} /></div>
         </div>
@@ -109,6 +112,7 @@ const Model = ({ alt, src, info }: IModel) => {
                 return <li key={index}>{item}</li>
               })}
             </ul>
+            Orders will be shipped beginning on January 30, 2023 and are currently limited to addresses in the US.
           </div>
           <div className={`${styles.closeInfoContainer} ${styles.closeBottomInfoContainer}`} onClick={handleClick}><Image layout='fill' objectFit='cover' alt="close Info" src={closeInfoIcon} /></div>
         </div>

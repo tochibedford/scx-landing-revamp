@@ -1,24 +1,24 @@
 import styles from '../../styles/Store.module.css'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { NextPage } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import Script from 'next/script'
 import { motion } from 'framer-motion'
 
-import { modelInfo, Data } from "../api/models"
+import { modelInfo } from "../api/models"
 import Model from '../../components/model'
 import scxLogo from '../../public/images/scxLogo.png'
 import { InfoContext } from '../../components/contexts/InfoContext'
 import Footer from '../../components/Footer'
 
-import dayNightFront from '../../public/images/hatImages/dayNightFront.jpg'
-import dayNightCandid from '../../public/images/hatImages/dayNightCandid.jpg'
-import earthFront from '../../public/images/hatImages/earthFront.jpg'
-import earthCandid from '../../public/images/hatImages/earthCandid.jpg'
-import intersectionsFront from '../../public/images/hatImages/intersectionsFront.jpg'
-import intersectionsCandid from '../../public/images/hatImages/intersectionsCandid.jpg'
+import dayNightFront from '../../public/images/hatImages/dayNightFront.webp'
+import dayNightCandid from '../../public/images/hatImages/dayNightCandid.webp'
+import earthFront from '../../public/images/hatImages/earthFront.webp'
+import earthCandid from '../../public/images/hatImages/earthCandid.webp'
+import intersectionsFront from '../../public/images/hatImages/intersectionsFront.webp'
+import intersectionsCandid from '../../public/images/hatImages/intersectionsCandid.webp'
 
 const Store: NextPage = () => {
 
@@ -31,8 +31,8 @@ const Store: NextPage = () => {
   const modelsInfos: modelInfo[] = [
     {
       name: "Intersections",
-      price: "$39.99",
-      productID: 8041496150291,
+      price: "$49.99",
+      productID: 8010762191092,
       url: testModel,
       colors: ["Black", "White"],
       images: [intersectionsFront, intersectionsCandid],
@@ -41,8 +41,8 @@ const Store: NextPage = () => {
     },
     {
       name: "Day and Night",
-      price: "$39.99",
-      productID: 8041531015443,
+      price: "$49.99",
+      productID: 8010767237364,
       url: testModel2,
       colors: ["Blue", "Yellow"],
       images: [dayNightFront, dayNightCandid],
@@ -51,8 +51,8 @@ const Store: NextPage = () => {
     },
     {
       name: "Earth",
-      price: "$39.99",
-      productID: 8041530097939,
+      price: "$49.99",
+      productID: 8010768580852,
       url: testModel3,
       colors: ["Beige"],
       images: [earthFront, earthCandid],
@@ -76,17 +76,17 @@ const Store: NextPage = () => {
           </div>
         </motion.div>
         <motion.div className={styles.modelsContainer}>
-          {modelsInfos.map((item, index) => {
+          {modelsInfos.map(item => {
             return <Model alt="Social Crucifixion Hat" key={item.productID} src={item.url} info={item} />
           })}
         </motion.div>
-        <motion.div className={styles.infoPanel} initial={{ width: 0 }} animate={{ width: isInfoOpen === true ? "clamp(500px, 50vw, 100%)" : 0, transition: { duration: 0.5 } }}>
+        <motion.div className={styles.infoPanel} initial={{ width: 0 }} animate={{ width: isInfoOpen === true ? "50%" : 0, transition: { duration: 0.5 } }}>
           <div className={styles.customShape} style={{ width: `${svgDividerWidth}px` }}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2.17 35.28" preserveAspectRatio="none">
+            {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2.17 35.28" preserveAspectRatio="none">
               <path d="M1.67 0c-.55 3.07.41 9.27 0 16.14-.4 6.88-.58 13.75.1 19.14h.4V0z" fill="%23fbd8c2" />
               <path d="M1.16 0c-.8 3.17.4 7.29.56 10.04C1.89 12.8.25 19.3.42 22.71c.16 3.43.84 4.65.86 7.05.03 2.4-.88 5.52-.88 5.52h1.77V0z" opacity=".5" />
               <path d="M.31 0c.84 2.56.3 7.68.43 11.79.12 4.1.61 6.86.28 9.58-.33 2.73-1.18 5.61-1 8.61.19 3 .82 4.73.84 5.3h1.2V0z" opacity=".5" fill="%23fbd8c2" />
-            </svg>
+            </svg> */}
           </div>
         </motion.div>
         <div className={styles.wavesContainer}>

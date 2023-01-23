@@ -14,7 +14,7 @@ const Footer = () => {
         //page visibility API calls, to pause the moving banner on page exit
         // Set the name of the hidden property and the change event for visibility
         let visibilityChange;
-        const hiddenAPIName = (<T,>(document: T & {msHidden?: boolean; webkitHidden?: boolean}) => {
+        const hiddenAPIName = (<T,>(document: T & { msHidden?: boolean; webkitHidden?: boolean }) => {
             if (typeof document.msHidden !== "undefined") {
                 return "msHidden";
             } else if (typeof document.webkitHidden !== "undefined") {
@@ -25,7 +25,7 @@ const Footer = () => {
         })(document)
 
         const positionXInterval = setInterval(() => { //animates the scx banner
-            if(!document[hiddenAPIName as keyof typeof document]){
+            if (!document[hiddenAPIName as keyof typeof document]) {
                 setPositionX(prevPosition => { // will take approximately 17,895 hrs to reach max css value (((2^32)/2)-1) (a signed 32 bit int)
                     return (prevPosition + 100)
                 })
@@ -50,7 +50,7 @@ const Footer = () => {
                         </Link>
                     </div>
                 </div>
-                <div className={styles.address}>23, Something Street, <br /> Los Angeles,<br /> California.<br /> United States of America</div>
+                <div className={styles.copyright}>© Social Crucifixion Inc 2023</div>
                 <div className={styles.socials}>
                     <div>
                         <Link href="https://twitter.com/socialcrucifix">

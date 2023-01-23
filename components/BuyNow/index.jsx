@@ -2,11 +2,19 @@ import ShopifyBuy from '@shopify/buy-button-js'
 import { useEffect } from 'react';
 
 const shopifyClient = ShopifyBuy.buildClient({
-    domain: 'scx-revamp.myshopify.com',
+    domain: "socialcrucifixion.myshopify.com",
     storefrontAccessToken: process.env.STOREFRONT_TOKEN
 });
-
 const ui = ShopifyBuy.UI.init(shopifyClient)
+
+//remove duplicate products
+// const idObject = {}
+// ui.components.product.map(item => {
+//     idObject[item.id] = item
+// })
+
+// ui.components.product = Object.values(idObject)
+
 
 export default function BuyNow({ id }) {
     useEffect(() => {
@@ -109,5 +117,5 @@ export default function BuyNow({ id }) {
         }
     }, [id]);
 
-    return <div id={`buy-now-${id}`} />;
+    return <div id={`buy-now-${id}`}></div>;
 }
