@@ -80,7 +80,7 @@ const Store: NextPage = () => {
             return <Model alt="Social Crucifixion Hat" key={item.productID} src={item.url} info={item} />
           })}
         </motion.div>
-        <motion.div className={styles.infoPanel} initial={{ width: 0 }} animate={{ width: isInfoOpen === true ? "clamp(500px, 50vw, 100%)" : 0, transition: { duration: 0.5 } }}>
+        <motion.div className={styles.infoPanel} initial={{ width: 0 }} animate={{ width: isInfoOpen === true ? "50%" : 0, transition: { duration: 0.5 } }}>
           <div className={styles.customShape} style={{ width: `${svgDividerWidth}px` }}>
             {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2.17 35.28" preserveAspectRatio="none">
               <path d="M1.67 0c-.55 3.07.41 9.27 0 16.14-.4 6.88-.58 13.75.1 19.14h.4V0z" fill="%23fbd8c2" />
