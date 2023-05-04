@@ -18,7 +18,7 @@ const IndexHome: NextPage = () => {
   menu.forEach((item, index) => {
     if (index != Math.floor((menu.length - 1) / 2)) { //checks for the center menu item
       scxFigureElements.push(
-        <Link href={locked.includes(index) ? "" : `/${item.toLowerCase().replaceAll(" ", "-")}`} key={item + index}>
+        <Link href={locked.includes(index) ? "https://docs.google.com/forms/d/e/1FAIpQLSffBzUOvXOxMQFEmXmfUSMvoxZbVoflzKp7yPZgStBJ5G9eew/viewform" : `/${item.toLowerCase().replaceAll(" ", "-")}`} key={item + index}>
           <a className={`figureContainer ${styles.figureContainer} ${locked.includes(index) ? styles.locked : ""}`}>
             <Image layout="fill" objectFit="contain" src={locked.includes(index) ? lockIcon : scxFigure} alt="scx figure" priority={index === 0 ? true : false} />
             <div className={styles.menuTitle}>{item}</div>
