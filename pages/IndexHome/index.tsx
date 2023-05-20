@@ -4,6 +4,7 @@ import Loader from '../../components/loader'
 import styles from '../../styles/Home.module.css'
 import lockIcon from "../../public/images/lock.png"
 import scxFigure from '../../public/images/SCX-MAIN-FIGURES.png'
+import scxGif from '../../public/images/SCX-Gif-2.gif'
 import { ReactNode, useRef, useState } from 'react'
 import Link from 'next/link'
 
@@ -16,11 +17,11 @@ const IndexHome: NextPage = () => {
   const scxFigureElements: ReactNode[] = []
 
   menu.forEach((item, index) => {
-    if (index != Math.floor((menu.length - 1) / 2)) { //checks for the center menu item
+    if (index == 0) { //checks for the center menu item
       scxFigureElements.push(
         <Link href={locked.includes(index) ? "https://docs.google.com/forms/d/e/1FAIpQLSffBzUOvXOxMQFEmXmfUSMvoxZbVoflzKp7yPZgStBJ5G9eew/viewform" : `/${item.toLowerCase().replaceAll(" ", "-")}`} key={item + index}>
-          <a className={`figureContainer ${styles.figureContainer} ${locked.includes(index) ? styles.locked : ""}`}>
-            <Image layout="fill" objectFit="contain" src={locked.includes(index) ? lockIcon : scxFigure} alt="scx figure" priority={index === 0 ? true : false} />
+          <a className={`figureContainer ${styles.figureContainer} ${locked.includes(index) ? styles.gif : ""}`}>
+            <Image layout="fill" objectFit="contain" src={locked.includes(index) ? scxGif : scxFigure} alt="scx figure" priority={index === 0 ? true : false} />
             <div className={styles.menuTitle}>{item}</div>
           </a>
         </Link>

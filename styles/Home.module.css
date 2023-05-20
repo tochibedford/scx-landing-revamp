@@ -30,6 +30,10 @@
   color: white;
 }
 
+.gif {
+  width: 50%;
+}
+
 .locked {
   width: 10%;
   opacity: 0.5;
