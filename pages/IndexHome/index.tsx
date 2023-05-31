@@ -5,37 +5,65 @@ import styles from '../../styles/Home.module.css'
 import lockIcon from "../../public/images/lock.png"
 import scxFigure from '../../public/images/SCX-MAIN-FIGURES.png'
 import scxGif from '../../public/images/SCX-Gif-2.gif'
-import { ReactNode, useRef, useState } from 'react'
+import { ReactNode, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+
 
 const IndexHome: NextPage = () => {
   const [showLoader, setShowLoader] = useState(true)
   const figuresContainerRef = useRef<HTMLDivElement>(null)
 
-  const locked = [0, 2] // use this to set the index of locked menu items
-  const menu = ["CHOOSE YOUR FATE", "STORE", "TABULA RASA"]
+  function transformToUrl(url: string) {
+    return url.toLowerCase().replaceAll(" ", "-")
+  }
+
+  const menuList = [
+    {
+      title: "CHOOSE YOUR FATE",
+      locked: false,
+      center: false,
+      url: "https://docs.google.com/forms/d/e/1FAIpQLSffBzUOvXOxMQFEmXmfUSMvoxZbVoflzKp7yPZgStBJ5G9eew/viewform",
+      outbound: true,
+      customIcon: scxGif,
+      customClassNames: [styles.gif]
+    },
+    {
+      title: "STORE",
+      locked: false,
+      center: true,
+      outbound: false,
+      get url() {
+        return transformToUrl(this.title)
+      }
+    },
+    {
+      title: "TABULA RASA",
+      locked: true,
+      center: false,
+      outbound: false,
+      get url() {
+        return "/"
+      }
+    }
+  ]
   const scxFigureElements: ReactNode[] = []
 
-  menu.forEach((item, index) => {
-    if (index == 0) { //checks for the center menu item
-      scxFigureElements.push(
-        <Link href={locked.includes(index) ? "https://docs.google.com/forms/d/e/1FAIpQLSffBzUOvXOxMQFEmXmfUSMvoxZbVoflzKp7yPZgStBJ5G9eew/viewform" : `/${item.toLowerCase().replaceAll(" ", "-")}`} key={item + index}>
-          <a className={`figureContainer ${styles.figureContainer} ${locked.includes(index) ? styles.gif : ""}`}>
-            <Image layout="fill" objectFit="contain" src={locked.includes(index) ? scxGif : scxFigure} alt="scx figure" priority={index === 0 ? true : false} />
-            <div className={styles.menuTitle}>{item}</div>
-          </a>
-        </Link>
-      )
-    } else {
-      scxFigureElements.push(
-        <Link href={locked.includes(index) ? "" : `/${item.toLowerCase().replaceAll(" ", "-")}`} key={item + index}>
-          <a className={`figureContainer ${styles.figureContainer} ${styles.center} ${locked.includes(index) ? styles.locked : ""}`}>
-            <Image layout="fill" objectFit="contain" src={locked.includes(index) ? lockIcon : scxFigure} alt="scx figure" />
-            <div className={styles.menuTitle}>{item}</div>
-          </a>
-        </Link>
-      )
-    }
+  menuList.forEach((item, index) => {
+    scxFigureElements.push(
+      <Link href={item.url} key={item.title + index} passHref>
+        <a target={item.outbound ? "_blank" : "_self"}
+          className={
+            `figureContainer 
+          ${styles.figureContainer}
+          ${item.center ? " " + styles.center : ""}
+          ${item.locked ? " " + styles.locked : ""}
+          ${item.customClassNames ? " " + item.customClassNames.join(" ") : ""}`
+          }>
+          <Image layout="fill" objectFit="contain" src={item.locked ? lockIcon : item.customIcon ? item.customIcon : scxFigure} alt="scx figure" />
+          <div className={styles.menuTitle}>{item.title}</div>
+        </a>
+      </Link>
+    )
   })
 
   return (
