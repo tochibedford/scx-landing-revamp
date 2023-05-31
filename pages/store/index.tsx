@@ -19,6 +19,7 @@ import earthFront from '../../public/images/hatImages/earthFront.webp'
 import earthCandid from '../../public/images/hatImages/earthCandid.webp'
 import intersectionsFront from '../../public/images/hatImages/intersectionsFront.webp'
 import intersectionsCandid from '../../public/images/hatImages/intersectionsCandid.webp'
+import eclipseFront from '../../public/images/hatImages/eclipseFront.webp'
 
 const Store: NextPage = () => {
 
@@ -27,8 +28,19 @@ const Store: NextPage = () => {
   const testModel = '/models/scxHatblackWhite.glb'
   const testModel2 = '/models/scxHatnewBlue.glb'
   const testModel3 = '/models/scxHatnewCream.glb'
+  const testModel4 = '/models/scxHatNewEclipse.glb'
 
   const modelsInfos: modelInfo[] = [
+    {
+      name: "Eclipse",
+      price: "$49.99",
+      productID: 8108701581556,
+      url: testModel4,
+      colors: ["Black"],
+      images: [eclipseFront],
+      description: "Day and night remain inseparable, just as the Sun, Moon, and Earth align in harmony to create the wonder of an eclipse. The SCX 'Eclipse' design represents alignment, a testament to the strength of sticking together.",
+      otherInfo: ["Front Panels: 100% Cotton Twill", "Mid and Back Panels: 100% Polyester Mesh", "Snapback: 7 Position Adjustable"]
+    },
     {
       name: "Intersections",
       price: "$49.99",
@@ -82,11 +94,6 @@ const Store: NextPage = () => {
         </motion.div>
         <motion.div className={styles.infoPanel} initial={{ width: 0 }} animate={{ width: isInfoOpen === true ? "50%" : 0, transition: { duration: 0.5 } }}>
           <div className={styles.customShape} style={{ width: `${svgDividerWidth}px` }}>
-            {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2.17 35.28" preserveAspectRatio="none">
-              <path d="M1.67 0c-.55 3.07.41 9.27 0 16.14-.4 6.88-.58 13.75.1 19.14h.4V0z" fill="%23fbd8c2" />
-              <path d="M1.16 0c-.8 3.17.4 7.29.56 10.04C1.89 12.8.25 19.3.42 22.71c.16 3.43.84 4.65.86 7.05.03 2.4-.88 5.52-.88 5.52h1.77V0z" opacity=".5" />
-              <path d="M.31 0c.84 2.56.3 7.68.43 11.79.12 4.1.61 6.86.28 9.58-.33 2.73-1.18 5.61-1 8.61.19 3 .82 4.73.84 5.3h1.2V0z" opacity=".5" fill="%23fbd8c2" />
-            </svg> */}
           </div>
         </motion.div>
         <div className={styles.wavesContainer}>
