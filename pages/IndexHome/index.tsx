@@ -22,10 +22,12 @@ const IndexHome: NextPage = () => {
       title: "CHOOSE YOUR FATE",
       locked: false,
       center: false,
-      url: "https://docs.google.com/forms/d/e/1FAIpQLSffBzUOvXOxMQFEmXmfUSMvoxZbVoflzKp7yPZgStBJ5G9eew/viewform",
-      outbound: true,
+      outbound: false,
       customIcon: scxGif,
-      customClassNames: [styles.gif]
+      customClassNames: [styles.gif],
+      get url() {
+        return transformToUrl(this.title)
+      }
     },
     {
       title: "STORE",
