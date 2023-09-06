@@ -1698,17 +1698,17 @@
   resolved "https://registry.npmjs.org/@rushstack/eslint-patch/-/eslint-patch-1.2.0.tgz"
   integrity sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg==
 
-"@shopify/buy-button-js@^2.2.1":
-  version "2.2.1"
-  resolved "https://registry.npmjs.org/@shopify/buy-button-js/-/buy-button-js-2.2.1.tgz"
-  integrity sha512-u7vSzYMgXZbhSb7TaT/NCHmpfTLofUOz2jCZYq1cYAJ+pPmjqaC48/MyquExF0vQ4dSTePzkGUgz9/EL+1X7Rg==
+"@shopify/buy-button-js@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@shopify/buy-button-js/-/buy-button-js-2.4.0.tgz#00324b9854254d8a5865540484f0356ba57b630c"
+  integrity sha512-JsNgo84mbew3rVrsQ4lPvfovm/i5lnB9Fqq1IvyEFSwkwjPr0xGR+MJFNpOrnsFKha52JW/5EtrQs2oyBrLDhA==
   dependencies:
     "@babel/runtime" "7.18.9"
     browserify "16.3.0"
     morphdom "2.6.1"
     mustache "3.0.1"
     sass "1.54.3"
-    shopify-buy "2.16.1"
+    shopify-buy "2.20.0"
     uglify-js "3.16.3"
 
 "@swc/helpers@0.4.11":
@@ -4368,10 +4368,10 @@ shell-quote@^1.6.1:
   resolved "https://registry.npmjs.org/shell-quote/-/shell-quote-1.7.4.tgz"
   integrity sha512-8o/QEhSSRb1a5i7TFR0iM4G16Z0vYB2OQVs4G3aAFXjn3T6yEx8AZxy1PgDF7I00LZHYA3WxaSYIf5e5sAX8Rw==
 
-shopify-buy@2.16.1:
-  version "2.16.1"
-  resolved "https://registry.npmjs.org/shopify-buy/-/shopify-buy-2.16.1.tgz"
-  integrity sha512-I+4pmFgYpQ8N3yaqNw/5fWu+e7AuiUIrQdDLPtD0SwEzL1EyB4q2Ge+MSHQmrAaZFiDXKHAkfzpkYExztquaDw==
+shopify-buy@2.20.0:
+  version "2.20.0"
+  resolved "https://registry.yarnpkg.com/shopify-buy/-/shopify-buy-2.20.0.tgz#b6455e78c01e28b0ddca61fb0c5a15ab66720a2c"
+  integrity sha512-xe6VlqJtI/c8BYeH2hhOw7gZSsbHUeGFUwVyAzQOR422Ml4UXTFld0GcbW88tkR/Vgy2tj592EL2paCws2fZzQ==
 
 shopify-buy@^2.17.1:
   version "2.17.1"
