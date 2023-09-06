@@ -93,9 +93,6 @@ const Model = ({ alt, src, info }: IModel) => {
               })}
             </ul>
 
-            <br />
-            **Orders will be shipped beginning on January 30, 2023 and are currently limited to addresses in the US.
-
           </div>
           <div className={styles.closeInfoContainer} onClick={handleClick}><Image layout='fill' objectFit='contain' alt="close Info" src={closeInfoIcon} /></div>
         </div>
